@@ -67,7 +67,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1 -InstallSystemTools
 
 ## 先看已有风格
 
-打开[样例库](examples/index.html)观看三套无声短片
+打开[在线样例库](https://yangmuye520-dotcom.github.io/story-motion-studio/examples/)观看三套无声短片
 
 | 调用名 | 适合讲什么 | 主要表现 |
 |---|---|---|
