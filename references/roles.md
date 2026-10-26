@@ -5,7 +5,7 @@
 | 来源 | 实际读什么 | 必须做什么 | 输出 |
 |---|---|---|---|
 | wtt | story-and-timing.md、material-review.md | 按阅读/动作编译整数帧，保存素材历史 | timeline.json、素材锁 |
-| lemo | 实际库DIRECTOR.md | 主体目标、具体转折、结尾回扣，三者对应当前镜头 | story-arc.json、TREATMENT.md |
+| lemo | 实际库DIRECTOR.md | 主体目标、具体转折、结尾回扣，三者对应当前镜头 | story-arc.json（可替代重复导演文档） |
 | huashu | t1_3b1b语法或适合内容的原卡、原生storyboard_lint.py | 对象接续写入源码；原生lint真实运行 | object-map.json、镜头表.md、qa/huashu-native.json |
 | shotcraft | 实际采用的shots配方或final-review.md审片原则 | 适合内容的镜头动机/运动，独立审片 | shot-plan.json、release-review.json |
 | dashi | 讲解动画通用规则.md | 确定实际字阶/语义色/观看尺寸/阅读预算，对比度检查 | visual-contract.json |

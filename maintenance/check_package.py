@@ -7,7 +7,7 @@ def check(root):
  errors=[];counts={'markdownLinks':0,'stylePacks':0,'exampleItems':0,'galleryLinks':0}
  def need(path,label):
   if not path.is_file():errors.append(label+': '+str(path.relative_to(root) if path.is_relative_to(root) else path))
- for name in ['README.md','SKILL.md','agents/openai.yaml','scripts/studio.py','scripts/integrations.py','scripts/samples.py','scripts/music.py','assets/starter/index.html','assets/starter/film.json','assets/styles/catalog.json','examples/catalog.json','docs/setup.md','docs/editing.md','docs/structure.md']:
+ for name in ['README.md','SKILL.md','agents/openai.yaml','scripts/studio.py','scripts/integrations.py','scripts/samples.py','scripts/music.py','assets/starter/index.html','assets/starter/film.json','assets/styles/catalog.json','examples/catalog.json','docs/setup.md','docs/editing.md']:
   need(root/name,'missing entry')
  docs=[root/'README.md',root/'SKILL.md',*sorted((root/'docs').glob('*.md')),*sorted((root/'references').glob('*.md'))]
  for f in docs:

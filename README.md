@@ -13,7 +13,7 @@
 
 仓库地址：`https://github.com/yangmuye520-dotcom/story-motion-studio`
 
-下面的远程命令在仓库发布后可用。运行者应先查看本仓库安装脚本，再在PowerShell执行：
+已发布版本可用下面的远程命令。运行者应先查看本仓库安装脚本，再在PowerShell执行：
 
 ```powershell
 $setup = Join-Path $env:TEMP ("story-motion-" + [guid]::NewGuid().ToString("N") + ".ps1"); Invoke-WebRequest "https://raw.githubusercontent.com/yangmuye520-dotcom/story-motion-studio/main/install.ps1" -OutFile $setup; & $setup -InstallSystemTools
@@ -67,7 +67,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1 -InstallSystemTools
 
 ## 先看已有风格
 
-打开[样例库](examples/index.html)观看短片，或打开[原片与样片对照](examples/compare.html)
+打开[样例库](examples/index.html)观看三套无声短片
 
 | 调用名 | 适合讲什么 | 主要表现 |
 |---|---|---|
@@ -123,11 +123,36 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1 -InstallSystemTools
 - **费用**：本地工具可使用免费方案，AI账户、外部模型与素材可能另有费用，涉及收费先说明
 - **质量**：七项参与和技术检查通过，不代表审美或听感自动合格，仍要观看、试听和反馈
 - **迁移**：播放 MP4 无需制作依赖；播放 HTML 需完整工程与本地服务；重新制作需七个来源和运行环境
-- **素材**：内置原片和原音轨用于本地参考，公开分享前单独核对授权
+- **素材**：包内只有无声展示样例，不含原参考视频与原音乐，项目音乐另外准备
 
 ## 按你要做的事继续
 
 - [安装依赖、换电脑使用](docs/setup.md)
 - [打开HTML、修改内容、排查404和乱码](docs/editing.md)
-- [目录结构、样例状态和维护方式](docs/structure.md)
 - [AI执行入口](SKILL.md) · [七项执行契约](references/roles.md) · [制作命令](references/production.md)
+
+
+## 没有参考视频也能用吗
+
+可以使用内置的三套视觉与动作起点，不必每次提供新参考视频。默认黑金讲解，按需要使用独立三维结构和粒子状态变化
+
+稳定来自同一字体、配色、组件、相机与运动规则，先看10秒连续样片再展开。新主题的内容、分镜和构图仍需设计，无法保证任意主题一次生成即达到高质量
+
+新增 assets/motion-kit.js 提供平滑启停、固定粒子ID、确定性形变、空间投影、深度排序和文字宽度检测。新项目自动加载它，编写画面时复用其中函数；motion-lock.json检测共享工具被改动，旧工程不会自动改动
+
+复杂实体光照、曲面和遮挡需要真实3D渲染器，本包工具是Canvas结构投影，不冒称完整3D引擎
+
+## 哪些文件必须保留
+
+| 文件 | 必要作用 |
+|---|---|
+| SKILL.md、agents/ | AI入口和技能发现 |
+| scripts/ | 初始化、七项接入、导出、素材检查、样例管理 |
+| assets/starter、assets/styles、assets/motion-kit.js | 可运行起点、固定视觉与复用动作 |
+| references/ | 按制作阶段读取的方法与约束 |
+| examples/approved、catalog.json、index.html | 三套可观看、可研究的视觉样例 |
+| README.md、docs/setup.md、docs/editing.md | 用户使用、安装和修改说明 |
+| install.*、upstreams.lock.json、requirements-install.txt、NOTICE.md | 一键安装、来源固定和许可边界 |
+| maintenance/check_package.py | 维护时检查链接和风格资源，制作时无需加载 |
+
+安装包不保留历史候选、参考原片、音轨备份、交接文件和旧检查报告。每个成片项目的素材、文稿与检查记录留在各自项目目录，七个必需上游仍独立安装

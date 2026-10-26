@@ -63,7 +63,11 @@ def style_state(root):
  return {p:digest(root/p) for p in files}
 def check_style(root):
  lock=read(root/'style-baseline.json');assert lock['files']==style_state(root),'Style changed: preserve baseline and propose a new style version'
- assert lock['evidence'].strip(),'Missing real approval/delegation evidence';return lock
+ assert lock['evidence'].strip(),'Missing real approval/delegation evidence'
+ if (root/'motion-lock.json').is_file():
+  for name,expected in read(root/'motion-lock.json')['files'].items():
+   assert digest(local(root,name))==expected,'Shared motion changed; create an intentional new version: '+name
+ return lock
 def style_lock(root,evidence):
  if (root/'style-baseline.json').exists():return check_style(root)
  assert evidence.strip(),'Approval/delegation evidence required'
@@ -87,12 +91,16 @@ def init(root,style_pack):
  assert not root.exists(),'New project path must not exist'
  src=Path(__file__).resolve().parent.parent/'assets/starter';assert src.is_dir(),'Use installed skill scripts/studio.py for init'
  shutil.copytree(src,root);(root/'tools').mkdir()
+ if not style_pack:style_pack=src.parent/'styles/gold-probability-v1'
+ shutil.copy2(src.parent/'motion-kit.js',root/'motion-kit.js')
  for n in ['studio.py','music.py','integrations.py','samples.py']:shutil.copy2(Path(__file__).parent/n,root/'tools'/n)
  if style_pack:
   style_pack=resolve_style_pack(style_pack);check_style(style_pack)
   for n in (*STYLE_FILES,'style-baseline.json'):shutil.copy2(style_pack/n,root/n)
   if (style_pack/'fonts').exists():shutil.copytree(style_pack/'fonts',root/'fonts',dirs_exist_ok=True)
   check_style(root)
+  if (style_pack/'motion-reference.js').is_file():shutil.copy2(style_pack/'motion-reference.js',root/'motion-reference.js')
+ write(root/'motion-lock.json',{'kind':'technical-baseline-not-visual-approval','files':{n:digest(root/n) for n in ['motion-kit.js','motion-reference.js'] if (root/n).is_file()}})
  compile_film(root);bind(root);print('PROJECT_READY_SEVEN_REQUIRED',str(root))
 def manifest(root):
  m=read(root/'assets.json');out=[];seen=set()
