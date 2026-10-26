@@ -1,0 +1,29 @@
+{
+  "name": "reference-gold-candidate",
+  "status": "candidate",
+  "fontFamily": "StudioSans",
+  "palette": {
+    "background": "#08090e",
+    "ink": "#f0e9d7",
+    "muted": "#9a9ba9",
+    "accent": "#d9b973",
+    "secondary": "#ad6566",
+    "line": "#393742"
+  },
+  "titleSize": 72,
+  "bodySize": 60,
+  "lineWidth": 4,
+  "radius": 18,
+  "motion": {
+    "entrySeconds": 0.5,
+    "ease": "smoothstep",
+    "transition": "object-continuity"
+  },
+  "layout": {
+    "designWidth": 1920,
+    "designHeight": 1080,
+    "safeMargin": 100,
+    "captionY": 850
+  },
+  "sound": "Optional original score; no voice by default"
+}

@@ -1,0 +1,16 @@
+{
+  "assets": [
+    {
+      "path": "fonts/OFL.txt",
+      "source": "Bundled font, see fonts/OFL.txt",
+      "license": "SIL Open Font License",
+      "useBasis": "Local text rendering"
+    },
+    {
+      "path": "fonts/StudioSans.ttf",
+      "source": "Bundled font, see fonts/OFL.txt",
+      "license": "SIL Open Font License",
+      "useBasis": "Local text rendering"
+    }
+  ]
+}

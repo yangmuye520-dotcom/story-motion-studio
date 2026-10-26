@@ -1,0 +1,8 @@
+{
+  "title":"技术样例：同一规则，让对象改变状态",
+  "width":1920,"height":1080,"fps":30,"voice":false,"audio":null,
+  "scenes":[
+    {"id":"move","duration":4,"purpose":"验证时间驱动位置变化","copy":"圆点沿路径前进，到达终点。","events":[{"at":0.4,"action":"圆点出发"},{"at":2.6,"action":"到达后显示完成状态"}],"outcome":"圆点到达右侧"},
+    {"id":"resolve","duration":4,"purpose":"验证同一对象接续与结果","copy":"同一个圆点变成确认标记，留下结果。","events":[{"at":0.4,"action":"圆点回到中央成为节点"},{"at":1.8,"action":"确认标记出现"}],"outcome":"节点显示已完成"}
+  ]
+}

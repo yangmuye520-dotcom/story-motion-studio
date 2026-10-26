@@ -1,0 +1,125 @@
+{
+  "schema": "story-motion-upstreams/v1",
+  "checked": "2026-10-25",
+  "items": [
+    {
+      "name": "wtt-code-animation-studio",
+      "repo": "WaterDJiang/Wattter_openSkills",
+      "commit": "cb79a2177e03dc7fd9520d881c8c883bbaff36af",
+      "subdir": "wattter_skills/wtt-code-animation-studio",
+      "requiredSha256": {
+        "SKILL.md": "9cfed0e7aaeff4455f1687676f7f79f3ffa67fc2328eed9948365a5688ff4ba3",
+        "references/story-and-timing.md": "36db3a63f43df287534dc4d8da7a0bb3ab6d1fff26397d2f3eab20e89b49d072",
+        "references/material-review.md": "819abca0913b22483d91509606068fac313d382acd9462ddf17078d566b187c1"
+      },
+      "licenseMetadata": null
+    },
+    {
+      "name": "lemo-opuscar",
+      "repo": "lemomo-ai/lemo-opuscar",
+      "commit": "413a6bd6d78ebd3bdd5abaec9538a26867f890df",
+      "subdir": "plugin/skills/lemo-opuscar",
+      "requiredSha256": {
+        "SKILL.md": "9036c5fd58ac3c3acc30b9183ed3a415829755a59d66b259a2b13a9fde5dd7c4"
+      },
+      "licenseMetadata": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "libraryRequiredSha256": {
+        "DIRECTOR.md": "3b8b0c40011a0cea796bb1afe6dae0f212115b57e2aa4c9a976b1994a923d564"
+      }
+    },
+    {
+      "name": "huashu-art-motion",
+      "repo": "alchaincyf/huashu-art-motion",
+      "commit": "8a0d7d72ca65fcce6f8ba82c4a6c8dfe35b8422c",
+      "subdir": "",
+      "requiredSha256": {
+        "SKILL.md": "df73e57c621425a82670ea74c68e8516d02553cf77cfe41c5f55883c542afb0a",
+        "references/动画语法/t1_3b1b.md": "23fc11ea77a5f14b34768398f61240787e459debeac8f3fd5109f6ea5e43d827",
+        "scripts/storyboard_lint.py": "fadf90d645d45d9584f635a6bb908eddbfa55d5422d615f09efecddae3003d73"
+      },
+      "licenseMetadata": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    },
+    {
+      "name": "video-shotcraft",
+      "repo": "Vincentwei1021/video-shotcraft",
+      "commit": "43bd349a136651865ecfa6ea1cf012f6e957d304",
+      "subdir": "",
+      "requiredSha256": {
+        "SKILL.md": "a94f87f093d07c96ddf3245d442acece7ceb6c544035855c63e26a216a068820",
+        "references/shots/camera/depth-layer-moves.md": "80131fdf2b562c3ee38a9a2eb24dbbf66ccce7a5e4a4a0fc1ae8c3af55807fd7",
+        "references/final-review.md": "e6f6710e4f90b794b3a139d6fc7a4d008912c284b74ebfd854d8c3050a245d95"
+      },
+      "licenseMetadata": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    },
+    {
+      "name": "dashi-animationstyle",
+      "repo": "chuspeeism/dashi-animationstyle",
+      "commit": "aa620f3b859aa5d191b783b2eb0fb59263731c76",
+      "subdir": "",
+      "requiredSha256": {
+        "SKILL.md": "1659d6734a53dd2589819166fa49fc59dd02c146fb277853215c6d1655e4f200",
+        "knowledge/讲解动画通用规则.md": "8e98e6309a96cf238d407169998cee8873029976af439b012a3cd25d1247aebf"
+      },
+      "licenseMetadata": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      }
+    },
+    {
+      "name": "mg-styles-15",
+      "repo": "Vincentwei1021/mg-styles-15",
+      "commit": "49052d80bfaf9fa8412cc9710530e5e95a3b8d8c",
+      "subdir": "",
+      "requiredSha256": {
+        "demos/08-morph/index.html": "4d104505425b3cc991e9b7b49c8bb3b653a1a5da471d0bce5ccca347d77ce62d",
+        "LICENSE": "7f03fee9299a401615e13e2c636ead0394f47395da4f816ae60b35ed2d91a932"
+      },
+      "licenseMetadata": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    },
+    {
+      "name": "xilo-opus-video",
+      "repo": "Kianzzz/xilo-opus-video",
+      "commit": "f2cd828e2692e7186186408ee01a936707c2c38d",
+      "subdir": "skills/xilo-opus-video",
+      "requiredSha256": {
+        "SKILL.md": "defac60882a7474153d0742a054d70226e31bbea2a186ff90e0b535b015a43c7",
+        "references/craft-rules.md": "27dd7313752bc8114aa0f782981109c760d056f2fc6aed21d939e047f7e58928",
+        "scripts/render.py": "28c31abbb19d8cdeda11fe18ef55fd0014f82806b1f858548c3debb4354a56e7"
+      },
+      "licenseMetadata": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    }
+  ]
+}

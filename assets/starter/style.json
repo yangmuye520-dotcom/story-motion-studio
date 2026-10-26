@@ -1,0 +1,13 @@
+{
+  "name": "technical-baseline-not-approved",
+  "status": "candidate",
+  "fontFamily": "StudioSans",
+  "palette": {"background":"#f2efe7","ink":"#242c31","muted":"#69716e","accent":"#3b796b","secondary":"#bb7852","line":"#d1d6cd"},
+  "titleSize": 64,
+  "bodySize": 58,
+  "lineWidth": 4,
+  "radius": 18,
+  "motion": {"entrySeconds":0.5,"ease":"smoothstep","transition":"object-continuity"},
+  "layout": {"designWidth":1920,"designHeight":1080,"safeMargin":100,"captionY":850},
+  "sound": "Optional original score; no voice by default"
+}

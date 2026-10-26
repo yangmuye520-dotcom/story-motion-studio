@@ -1,0 +1,89 @@
+{
+  "title": "把等待变成约定",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "voice": false,
+  "audio": null,
+  "scenes": [
+    {
+      "id": "particle-0",
+      "duration": 6,
+      "purpose": "消息一条条增加，见面的时间仍未确定。",
+      "copy": "消息一条条增加，见面的时间仍未确定。",
+      "events": [
+        {
+          "at": 0.4,
+          "action": "对应的主体开始连续变化"
+        },
+        {
+          "at": 4.2,
+          "action": "结果显现后留出阅读与观察时间"
+        }
+      ],
+      "outcome": "消息一条条增加，见面的时间仍未确定。",
+      "startFrame": 0,
+      "endFrame": 180
+    },
+    {
+      "id": "particle-1",
+      "duration": 6,
+      "purpose": "双方都在猜测，真正的安排被挤到一旁。",
+      "copy": "双方都在猜测，真正的安排被挤到一旁。",
+      "events": [
+        {
+          "at": 0.4,
+          "action": "对应的主体开始连续变化"
+        },
+        {
+          "at": 4.2,
+          "action": "结果显现后留出阅读与观察时间"
+        }
+      ],
+      "outcome": "双方都在猜测，真正的安排被挤到一旁。",
+      "startFrame": 180,
+      "endFrame": 360
+    },
+    {
+      "id": "particle-2",
+      "duration": 6,
+      "purpose": "先约定20:30回复，让等待有一个明确节点。",
+      "copy": "先约定20:30回复，让等待有一个明确节点。",
+      "events": [
+        {
+          "at": 0.4,
+          "action": "对应的主体开始连续变化"
+        },
+        {
+          "at": 4.2,
+          "action": "结果显现后留出阅读与观察时间"
+        }
+      ],
+      "outcome": "先约定20:30回复，让等待有一个明确节点。",
+      "startFrame": 360,
+      "endFrame": 540
+    },
+    {
+      "id": "particle-3",
+      "duration": 6,
+      "purpose": "按约返回再确认安排，问题回到事情本身。",
+      "copy": "按约返回再确认安排，问题回到事情本身。",
+      "events": [
+        {
+          "at": 0.4,
+          "action": "对应的主体开始连续变化"
+        },
+        {
+          "at": 4.2,
+          "action": "结果显现后留出阅读与观察时间"
+        }
+      ],
+      "outcome": "按约返回再确认安排，问题回到事情本身。",
+      "startFrame": 540,
+      "endFrame": 720
+    }
+  ],
+  "sampleType": "particle",
+  "totalFrames": 720,
+  "duration": 24.0
+}

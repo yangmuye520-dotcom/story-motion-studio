@@ -1,0 +1,4 @@
+{"assets":[
+ {"path":"fonts/StudioSans.ttf","source":"Noto Sans SC / google/fonts/ofl/notosanssc","license":"SIL OFL 1.1","useBasis":"本地开源中文字体，授权随附；文件改名不改变字体内部名称"},
+ {"path":"fonts/OFL.txt","source":"Noto Sans SC accompanying OFL text","license":"SIL OFL 1.1","useBasis":"保留字体许可"}
+]}

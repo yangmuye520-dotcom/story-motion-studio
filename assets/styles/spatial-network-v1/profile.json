@@ -1,0 +1,13 @@
+{
+  "id": "spatial-network-v1",
+  "label": "三维结构",
+  "status": "approved",
+  "features": "单信号跟随、局部结构、通道动作和返回整体",
+  "sampleProject": "../../../examples/approved/spatial-network-v1",
+  "preview": "../../../examples/approved/spatial-network-v1/preview.mp4",
+  "implementation": "motion-reference.js",
+  "entryFunction": "neuralStudy",
+  "evidence": "2026-10-24 用户观看原片与三条24秒新样片对照后明确表示：“这三条还行，这些都可以放进我的skills里面吗”。认可为可复用风格样板，不扩大为所有未来成片的验收或素材公开传播许可。",
+  "reuse": "参考已认可工程中的初始化、主函数、依赖素材与转场，重写本片故事及数据；style-pack只初始化基础样式，不能代替镜内动作实现。",
+  "audio": "原音轨属于该样片素材；新视频另选适配音频并记录来源，不默认继承原曲。"
+}

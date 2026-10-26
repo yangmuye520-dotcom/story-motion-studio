@@ -1,0 +1,89 @@
+{
+  "title": "为什么7更容易出现？",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "voice": false,
+  "audio": null,
+  "scenes": [
+    {
+      "id": "gold-0",
+      "duration": 6,
+      "purpose": "一颗公平骰子，有六种等可能的朝上结果。",
+      "copy": "一颗公平骰子，有六种等可能的朝上结果。",
+      "events": [
+        {
+          "at": 0.4,
+          "action": "对应的主体开始连续变化"
+        },
+        {
+          "at": 4.2,
+          "action": "结果显现后留出阅读与观察时间"
+        }
+      ],
+      "outcome": "一颗公平骰子，有六种等可能的朝上结果。",
+      "startFrame": 0,
+      "endFrame": 180
+    },
+    {
+      "id": "gold-1",
+      "duration": 6,
+      "purpose": "两颗独立骰子相加，不同的和，机会并不相同。",
+      "copy": "两颗独立骰子相加，不同的和，机会并不相同。",
+      "events": [
+        {
+          "at": 0.4,
+          "action": "对应的主体开始连续变化"
+        },
+        {
+          "at": 4.2,
+          "action": "结果显现后留出阅读与观察时间"
+        }
+      ],
+      "outcome": "两颗独立骰子相加，不同的和，机会并不相同。",
+      "startFrame": 180,
+      "endFrame": 360
+    },
+    {
+      "id": "gold-2",
+      "duration": 6,
+      "purpose": "和为7有6种组合；和为2只有1种。",
+      "copy": "和为7有6种组合；和为2只有1种。",
+      "events": [
+        {
+          "at": 0.4,
+          "action": "对应的主体开始连续变化"
+        },
+        {
+          "at": 4.2,
+          "action": "结果显现后留出阅读与观察时间"
+        }
+      ],
+      "outcome": "和为7有6种组合；和为2只有1种。",
+      "startFrame": 360,
+      "endFrame": 540
+    },
+    {
+      "id": "gold-3",
+      "duration": 6,
+      "purpose": "先数等可能的组合，再比较结果的机会。",
+      "copy": "先数等可能的组合，再比较结果的机会。",
+      "events": [
+        {
+          "at": 0.4,
+          "action": "对应的主体开始连续变化"
+        },
+        {
+          "at": 4.2,
+          "action": "结果显现后留出阅读与观察时间"
+        }
+      ],
+      "outcome": "先数等可能的组合，再比较结果的机会。",
+      "startFrame": 540,
+      "endFrame": 720
+    }
+  ],
+  "sampleType": "gold",
+  "totalFrames": 720,
+  "duration": 24.0
+}

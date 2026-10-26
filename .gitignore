@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env*
+*.local.json
+*.wav
+*.mp3
+examples/references/
+.asset-history/
+.releases/

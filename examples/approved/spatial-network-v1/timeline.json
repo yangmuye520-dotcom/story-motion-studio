@@ -1,0 +1,89 @@
+{
+  "title": "跟住一次信号",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "voice": false,
+  "audio": null,
+  "scenes": [
+    {
+      "id": "neural-0",
+      "duration": 6,
+      "purpose": "先看到整张网络，再跟住其中一次信号。",
+      "copy": "先看到整张网络，再跟住其中一次信号。",
+      "events": [
+        {
+          "at": 0.4,
+          "action": "对应的主体开始连续变化"
+        },
+        {
+          "at": 4.2,
+          "action": "结果显现后留出阅读与观察时间"
+        }
+      ],
+      "outcome": "先看到整张网络，再跟住其中一次信号。",
+      "startFrame": 0,
+      "endFrame": 180
+    },
+    {
+      "id": "neural-1",
+      "duration": 6,
+      "purpose": "放大到局部结构，观察通道如何改变。",
+      "copy": "放大到局部结构，观察通道如何改变。",
+      "events": [
+        {
+          "at": 0.4,
+          "action": "对应的主体开始连续变化"
+        },
+        {
+          "at": 4.2,
+          "action": "结果显现后留出阅读与观察时间"
+        }
+      ],
+      "outcome": "放大到局部结构，观察通道如何改变。",
+      "startFrame": 180,
+      "endFrame": 360
+    },
+    {
+      "id": "neural-2",
+      "duration": 6,
+      "purpose": "孔道张开后，粒子从上方穿过中央空隙。",
+      "copy": "孔道张开后，粒子从上方穿过中央空隙。",
+      "events": [
+        {
+          "at": 0.4,
+          "action": "对应的主体开始连续变化"
+        },
+        {
+          "at": 4.2,
+          "action": "结果显现后留出阅读与观察时间"
+        }
+      ],
+      "outcome": "孔道张开后，粒子从上方穿过中央空隙。",
+      "startFrame": 360,
+      "endFrame": 540
+    },
+    {
+      "id": "neural-3",
+      "duration": 6,
+      "purpose": "镜头回到整体，继续追踪后续的信号传递。",
+      "copy": "镜头回到整体，继续追踪后续的信号传递。",
+      "events": [
+        {
+          "at": 0.4,
+          "action": "对应的主体开始连续变化"
+        },
+        {
+          "at": 4.2,
+          "action": "结果显现后留出阅读与观察时间"
+        }
+      ],
+      "outcome": "镜头回到整体，继续追踪后续的信号传递。",
+      "startFrame": 540,
+      "endFrame": 720
+    }
+  ],
+  "sampleType": "neural",
+  "totalFrames": 720,
+  "duration": 24.0
+}
