@@ -1,4 +1,4 @@
-﻿[CmdletBinding()]
+[CmdletBinding()]
 param([switch]$InstallSystemTools,[switch]$Check)
 $ErrorActionPreference = 'Stop'
 function Find-Python {
@@ -34,11 +34,11 @@ $repo = $PSScriptRoot
 if (-not $repo -or -not (Test-Path -LiteralPath (Join-Path $repo 'install.py'))) {
  if ($Check) { throw 'Download or clone the repository before using -Check' }
  $repo = Join-Path ([IO.Path]::GetTempPath()) ('story-motion-' + [guid]::NewGuid().ToString('N'))
- & $git.Source clone --depth 1 'https://github.com/yangmuye520-dotcom/story-motion-studio.git' $repo
+ & $git.Source clone --depth 1 'https://github.com/yangmuye814/story-motion-studio.git' $repo
  if ($LASTEXITCODE -ne 0) {
   $archive = Join-Path ([IO.Path]::GetTempPath()) ('story-motion-' + [guid]::NewGuid().ToString('N') + '.zip')
   $extract = Join-Path ([IO.Path]::GetTempPath()) ('story-motion-archive-' + [guid]::NewGuid().ToString('N'))
-  Invoke-WebRequest 'https://codeload.github.com/yangmuye520-dotcom/story-motion-studio/zip/refs/heads/main' -OutFile $archive
+  Invoke-WebRequest 'https://codeload.github.com/yangmuye814/story-motion-studio/zip/refs/heads/main' -OutFile $archive
   Expand-Archive -LiteralPath $archive -DestinationPath $extract
   $repo = Join-Path $extract 'story-motion-studio-main'
   if (-not (Test-Path -LiteralPath (Join-Path $repo 'install.py'))) { throw 'Repository archive invalid; confirm it has been published' }

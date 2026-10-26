@@ -1,6 +1,6 @@
 # 来源与发布范围
 
-维护者：yangmuye520-dotcom
+维护者：yangmuye814
 
 总技能组织本地代码动画流程，七个上游保留原作者归属，来源和固定提交见upstreams.lock.json，安装时从原作者仓库获取
 

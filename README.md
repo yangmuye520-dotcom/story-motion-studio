@@ -11,12 +11,12 @@
 
 ## Windows 安装
 
-仓库地址：`https://github.com/yangmuye520-dotcom/story-motion-studio`
+仓库地址：`https://github.com/yangmuye814/story-motion-studio`
 
 已发布版本可用下面的远程命令。运行者应先查看本仓库安装脚本，再在PowerShell执行：
 
 ```powershell
-$setup = Join-Path $env:TEMP ("story-motion-" + [guid]::NewGuid().ToString("N") + ".ps1"); Invoke-WebRequest "https://raw.githubusercontent.com/yangmuye520-dotcom/story-motion-studio/main/install.ps1" -OutFile $setup; & $setup -InstallSystemTools
+$setup = Join-Path $env:TEMP ("story-motion-" + [guid]::NewGuid().ToString("N") + ".ps1"); Invoke-WebRequest "https://raw.githubusercontent.com/yangmuye814/story-motion-studio/main/install.ps1" -OutFile $setup; & $setup -InstallSystemTools
 ```
 
 若脚本执行策略拦截，在已确认下载文件内容后，可用 `powershell -ExecutionPolicy Bypass -File <下载的脚本路径> -InstallSystemTools` 运行本次安装，不修改全局执行策略
@@ -67,7 +67,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1 -InstallSystemTools
 
 ## 先看已有风格
 
-打开[在线样例库](https://yangmuye520-dotcom.github.io/story-motion-studio/examples/)观看三套无声短片
+打开[在线样例库](https://yangmuye814.github.io/story-motion-studio/examples/)观看三套无声短片
 
 | 调用名 | 适合讲什么 | 主要表现 |
 |---|---|---|
