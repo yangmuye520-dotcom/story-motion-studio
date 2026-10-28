@@ -5,6 +5,47 @@
 默认采用当前认可的**暗色精细二维**表现：统一字体、暗底、蓝色处理、青色结果、琥珀色来源，按内容设计动作
 适合流程教学、机制科普、系统对比和数据解释；默认无配音、中文屏幕文字、16:9横屏、1920×1080、30fps
 
+## 先看动态效果
+
+下面GIF截取自包内同一条48秒无声示范，经过缩小显示，展示连续变化而非静态截图
+它们是动作能力示例，不是四条完整成片，也不表示换成任何资料都能直接套用
+
+### 拆分归并
+
+同一批对象拆开、移动并重新成组，适合文档整理、知识分类和数据预处理
+
+![拆分归并动态示例](examples/readme/split.gif)
+
+可以这样提需求：`把课堂笔记拆成事实、问题和行动三类，保留来源，再展示归类结果`
+
+### 队列并发
+
+展示等待、槽位占用、完成释放与任务补位，适合任务调度和资源限制
+
+![队列并发动态示例](examples/readme/queue.gif)
+
+可以这样提需求：`用六个任务和两个处理槽位，解释排队与并发，展示槽位怎样释放`
+
+### 局部更新
+
+新证据指向目标、替换局部值，其余信息保持原位，适合记忆更新和增量处理
+
+![局部更新动态示例](examples/readme/patch.gif)
+
+可以这样提需求：`用偏好从喝咖啡变成喝茶的例子，说明只更新对应记录，其他记录保持不变`
+
+### 双路对照
+
+同一输入进入两条路径，按相同维度比较，适合方法、策略和系统对照
+
+![双路对照动态示例](examples/readme/compare.gif)
+
+可以这样提需求：`同一份资料分别经过全文重写和局部更新，沿相同步骤比较，不编造性能数字`
+
+[播放完整48秒无声示范](https://yangmuye814.github.io/story-motion-studio/examples/engineering-2d/demo.html) · [查看24项动作网页](https://yangmuye814.github.io/story-motion-studio/examples/motion-library/)
+
+你不必手动指定接口，Codex根据资料含义选动作；缺少容量、真实数值或比较条件时先补信息，不用动画虚构结论
+
 ## 直接开始
 
 在 Codex 发送下面内容，填写方括号即可
@@ -89,14 +130,20 @@ HyperFrames 是本地实现、预览和导出工具，不是替你写出好文�
 中文界面补丁随技能携带，使用本技能预览入口会应用到固定版本运行时，未覆盖的第三方诊断保留原文
 新版初始化会直接复制暗色模板、字体、共享CSS和动作源码，建立视觉与资产锁；旧工程不会被自动改色或覆盖
 
-## Windows 安装
+## 首次安装：Windows
 
 仓库地址：`https://github.com/yangmuye814/story-motion-studio`
+
+**这台电脑已配置过：直接使用上面的提示词，不要重复安装**
+
+**新电脑：分两步安装，目前没有经过验证的“七个来源＋HyperFrames全部一键安装”脚本**
 
 已发布版本可用下面的远程命令。运行者应先查看本仓库安装脚本，再在PowerShell执行：
 
 ```powershell
-$setup = Join-Path $env:TEMP ("story-motion-" + [guid]::NewGuid().ToString("N") + ".ps1"); Invoke-WebRequest "https://raw.githubusercontent.com/yangmuye814/story-motion-studio/main/install.ps1" -OutFile $setup; & $setup -InstallSystemTools
+$setup = Join-Path $env:TEMP ("story-motion-" + [guid]::NewGuid().ToString("N") + ".ps1")
+Invoke-WebRequest "https://raw.githubusercontent.com/yangmuye814/story-motion-studio/main/install.ps1" -OutFile $setup
+powershell -ExecutionPolicy Bypass -File $setup -InstallSystemTools
 ```
 
 若脚本执行策略拦截，在已确认下载文件内容后，可用 `powershell -ExecutionPolicy Bypass -File <下载的脚本路径> -InstallSystemTools` 运行本次安装，不修改全局执行策略
@@ -128,8 +175,64 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1 -InstallSystemTools
 换电脑还需 Node.js、Chrome、FFmpeg/FFprobe、固定 `hyperframes@0.8.207` 运行时，以及 hyperframes、hyperframes-cli、hyperframes-registry、media-use 四个官方技能
 详细配置见 [HyperFrames安装与使用](references/hyperframes.md)，不要把“复制本技能目录”当作已完成全部安装
 
-在 Codex 说“检查 story-motion-studio 的 HyperFrames 环境并补齐免费依赖”即可让它先检查，缺少什么再安装
+第一步安装后，新开一个Codex对话，发送下面这段，让它检查并补齐环境
+
+```text
+检查 story-motion-studio 的制作环境并补齐免费依赖
+先读取本技能 references/hyperframes.md
+安装或定位 Node.js、Chrome、FFmpeg 和 FFprobe
+在技能目录外安装固定版本 hyperframes@0.8.207
+从 heygen-com/hyperframes 安装四个官方核心技能：
+hyperframes、hyperframes-cli、hyperframes-registry、media-use
+合并本机配置，保留已有字段，不隐式升级运行时
+使用技能自带的中文界面补丁
+检查七个必需来源是否完整
+新建独立测试工程，实际完成中文预览和短片导出
+报告安装位置、检查结果和仍缺少的项目
+只使用免费本地功能，涉及收费先说明
+```
+
+完成标准：七个来源可读取、HyperFrames能运行、中文预览能打开、短片MP4实际导出并可播放
+仅复制技能目录或doctor检查通过，都不等于实际导出已验证
 运行时放技能目录外，不隐式升级，不自动启用付费云端、头像或语音克隆服务
+
+## 日常使用：从资料到成片
+
+| 步骤 | 你做什么 | Codex完成什么 |
+|---|---|---|
+| 提供资料 | 主题或MD路径、观众、理解目标、时长、音乐 | 梳理事实、覆盖范围与缺失信息 |
+| 确认讲解 | 检查内容是否准确、是否遗漏 | 讲稿与唯一分镜，每镜明确对象变化、理解目标和承接 |
+| 看连续样片 | 看10秒里能否读懂、运动是否帮助解释 | 同一HTML工程的连续样片，包含阅读停留和承接 |
+| 扩展整片 | 回复通过，或提出具体修改 | 沿已确认的视觉和运动语言完成全片 |
+| 检查交付 | 查看成片与音乐 | 分别检查内容、连续动作、可读性和实际导出 |
+
+BGM请提供真实音频或视频路径，JPG缩略图没有音轨；没有素材时先不加，不继承演示音乐
+工具采用免费本地路线，AI账户、外部素材可能另有费用，涉及收费先说明
+
+### 修改已有视频
+
+在原制作对话中说清时间段、问题和保留部分，例如
+
+```text
+修改当前工程的第20到35秒
+文字太快，增加阅读停留
+改为同一份输入经过两条路径的对照
+保留其他镜头、风格和BGM
+先输出这一段连续预览，通过后再重新导出整片
+```
+
+HTML保存文字、图形和时间线，HyperFrames运行它并逐帧导出，FFmpeg把连续画面与音轨编码为MP4
+修改HTML后需要重新导出，旧MP4不会自动变化；分享可编辑工程时带齐整个目录和素材
+
+### 安装或使用遇到问题
+
+| 情况 | 处理方式 |
+|---|---|
+| GitHub下载失败 | 检查网络并保留报错，失败不算安装完成 |
+| 提示已有目录或配置 | 防覆盖保护，让Codex检查差异，不要删除目录强行重装 |
+| 新对话找不到技能 | 核对安装路径和SKILL.md，再重新打开Codex对话 |
+| localhost打不开 | 让Codex检查预览服务是否运行、实际端口是什么 |
+| MP4能播，HTML不能改 | 需要完整工程和制作环境，单个HTML不是工作台 |
 
 ## 七个来源与 HyperFrames 怎样分工
 
