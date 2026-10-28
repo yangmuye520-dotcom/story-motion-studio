@@ -42,6 +42,10 @@ BGM：[提供音频或视频路径，或先不加音乐]
 暗色参考和源码在 [主要模板目录](assets/templates/engineering-2d-v1/)，[10秒无声参考](assets/templates/engineering-2d-v1/preview.mp4) 展示已认可的风格
 [四个新增动作组成48秒无声示范](assets/templates/engineering-2d-v1/modules-demo.mp4)，可在本地HyperFrames工作台预览；它们是可运行起点，不等于用户已认可新成片
 
+[打开24种动态效果展示网页](https://yangmuye814.github.io/story-motion-studio/examples/motion-library/)
+
+可暂停、拖动进度、按分类筛选并复制选用提示词，标明现成视频模块与需要适配的网页演示
+
 ## 动作按内容选
 
 | 内容要解释什么 | 动作模块 | 观众能看到什么 |

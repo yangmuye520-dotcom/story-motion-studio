@@ -27,6 +27,8 @@ jobs:
           cp index.html .nojekyll _site/
           mkdir -p _site/examples/engineering-2d
           cp assets/templates/engineering-2d-v1/{demo.html,modules-demo.mp4,preview.mp4,poster.png} _site/examples/engineering-2d/
+          mkdir -p _site/assets/templates/engineering-2d-v1/assets/fonts
+          cp assets/templates/engineering-2d-v1/assets/fonts/{StudioSans.ttf,OFL.txt} _site/assets/templates/engineering-2d-v1/assets/fonts/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
