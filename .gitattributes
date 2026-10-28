@@ -1,0 +1,4 @@
+
+# Preserve byte-locked template payload across Windows and Linux checkouts
+assets/templates/** -text
+assets/quality-reference/** -text
