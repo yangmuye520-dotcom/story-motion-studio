@@ -2,7 +2,25 @@
 
 HTML 是可执行工程，MP4 是已固定的播放结果。先在 HTML 中确认修改，再导出新 MP4
 
-## 打开 HTML
+## 新HyperFrames工程：优先使用这一节
+
+根页面声明组合与时间线，由HyperFrames装配，直接双击index.html或只启动普通HTTP服务可能看到空页面
+在Codex中让本技能打开项目的中文工作台即可；已配好环境时也可使用技能 scripts/hyperframes.py 的 preview 命令，见[HyperFrames说明](../references/hyperframes.md)
+
+| 修改目标 | 文件 |
+|---|---|
+| 讲解与统一分镜 | explanation.json，改后重新生成storyboard.md |
+| 当前镜头文字、图形、对象 | compositions/下对应HTML |
+| 组合顺序、总时长、音轨 | index.html的组合与audio声明 |
+| 当前默认配色、字体、字阶 | assets/engineering-2d.css；修改需明确风格版本与复核 |
+| 四类复用动作 | assets/mechanism-motion.js；修改需明确模块版本与复核 |
+| 背景音乐与字体 | assets下实际素材与对应HTML引用 |
+
+文稿与HTML都要同步；只改讲稿不会自动改MP4
+每个组合仍只有一个暂停时间线；改变镜长要同步后续开始时间、总时长、阅读与音轨
+共享模板有锁，不能删除锁伪装修改；有意修改需说明新版差异并重新检查连续样片
+
+## 旧Canvas工程：打开HTML
 
 1. 解压整个工程，进入**真正包含 `index.html` 的文件夹**
 2. 在该目录打开 PowerShell 或终端
@@ -14,7 +32,7 @@ HTML 是可执行工程，MP4 是已固定的播放结果。先在 HTML 中确�
 
 直接双击 HTML 可能因浏览器本地文件限制而无法读取 JSON 和音频。本机 `127.0.0.1` 地址不能直接当作给别人使用的分享链接
 
-## 修改哪个文件
+## 旧Canvas工程：修改哪个文件
 
 下面是本技能 starter 的职责，实际项目可能增加文件，应先查看入口及绘图代码的真实引用
 

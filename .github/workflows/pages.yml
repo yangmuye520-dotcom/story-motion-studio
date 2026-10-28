@@ -2,7 +2,7 @@ name: Publish sample gallery
 on:
   push:
     branches: [main]
-    paths: ['examples/**', '.github/workflows/pages.yml']
+    paths: ['examples/**', 'assets/templates/**', '.github/workflows/pages.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -25,6 +25,8 @@ jobs:
           mkdir -p _site
           cp -R examples _site/
           cp index.html .nojekyll _site/
+          mkdir -p _site/examples/engineering-2d
+          cp assets/templates/engineering-2d-v1/{demo.html,modules-demo.mp4,preview.mp4,poster.png} _site/examples/engineering-2d/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

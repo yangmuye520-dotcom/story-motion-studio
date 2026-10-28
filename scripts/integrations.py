@@ -75,6 +75,9 @@ def native_lint(project):
  write(project/'qa/huashu-native.json',{'sourceScriptSha256':digest(script),'storyboardSha256':digest(board),'returncode':result.returncode,'stdout':result.stdout,'stderr':result.stderr});print(result.stdout)
  assert result.returncode==0,'Native huashu storyboard lint failed; see qa/huashu-native.json'
 def check(project,strict=True):
+ if (project/'pipeline.json').is_file() and read(project/'pipeline.json').get('backend')=='hyperframes':
+  import hf_pipeline
+  return hf_pipeline.coverage(project)
  check_sources(project);usage=read(project/'integration/contributions.json')['records'];missing=[s for s in SPECS if s not in usage]
  if missing:
   assert not strict,'Missing actual contributions: '+', '.join(missing)
@@ -86,6 +89,9 @@ def check(project,strict=True):
   p=local(project,r['artifact']);assert r['artifact']==SPECS[name]['artifact'] and digest(p)==r['artifactSha256'] and r['anchor'] in p.read_text(encoding='utf-8'),'Contribution stale: '+name
  result={'complete':True,'requiredSkillCount':7,'roleChecks':role_checks(project),'contributionSha256':digest(project/'integration/contributions.json'),'sourceLockSha256':digest(project/'integration/source-lock.json'),'limits':'Hashes and structural checks do not prove artistic quality or human approval.'};return result
 def release(project):
+ if (project/'pipeline.json').is_file() and read(project/'pipeline.json').get('backend')=='hyperframes':
+  import hf_pipeline
+  return hf_pipeline.release(project)
  coverage=check(project,True);assets=check_assets(project);style=check_style(project);r=read(project/'qa/candidate-report.json');video=project/'candidate.mp4';assert digest(video)==r['outputSha256']
  assert r['draft'] is False and r['fullDecode'] and r['output']=='candidate.mp4','Only a successfully rendered candidate can be released'
  assert r['materialVersion']==assets['version'] and r['style']==style and r['sevenSkills']==coverage,'Candidate binding is stale'

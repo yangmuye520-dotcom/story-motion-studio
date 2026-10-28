@@ -1,3 +1,5 @@
+> 下列旧文件契约适用于 Canvas 路线。HyperFrames 新工程以[统一分镜与四项验收](shared-production.md)为准，不能两套报告混用
+
 # 七项必须执行的契约
 
 七包都必需。root由STORY_MOTION_UPSTREAM或本机配置upstreamRoot指定，默认用户技能根/video；lemo实际库由lemoLibrary或LEMO_OPUSCAR_LIBRARY指定。mg没有SKILL.md也可用，但必须有实际demo源码。
@@ -19,3 +21,8 @@
 结构/哈希不能证明模型确实理解或画面好看，七项报告仍需人工/独立审查核对语义。技能是工作流和代码包，不是七个API模型；仅采用某项方法就如实说方法应用，不声称运行全部渲染器。
 
 本包维护单一渲染后端，七项通过适配共同影响同一工程。用户指定的风格与声音优先，产品配方不强行改变科普题材，不因某包通常带配音就新增旁白。
+
+
+## HyperFrames 新工程
+
+新工程的执行、安装与发布边界读[HyperFrames 接入](hyperframes.md)，内容与画面对应读[讲解质量](explainer-quality.md)。七项实际贡献仍必需；旧 Canvas 验收字段不可伪造或冒充新后端的检查结果

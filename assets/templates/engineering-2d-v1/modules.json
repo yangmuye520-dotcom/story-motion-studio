@@ -1,0 +1,28 @@
+{
+  "modules": [
+    {
+      "id": "split-merge",
+      "composition": "compositions/split-merge.html",
+      "meaning": "先分类再归并，只有主题相容的证据才进入同一组",
+      "status": "implementation-demo-not-user-approved"
+    },
+    {
+      "id": "queue-concurrency",
+      "composition": "compositions/queue-concurrency.html",
+      "meaning": "同一批任务从等待走到完成，等待、执行和完成是不同状态",
+      "status": "implementation-demo-not-user-approved"
+    },
+    {
+      "id": "local-patch",
+      "composition": "compositions/local-patch.html",
+      "meaning": "观察中间一行被替换，上下两段的位置和内容都不变",
+      "status": "implementation-demo-not-user-approved"
+    },
+    {
+      "id": "dual-compare",
+      "composition": "compositions/dual-compare.html",
+      "meaning": "比较的是处理步骤和结果形态，动画用时不是软件耗时",
+      "status": "implementation-demo-not-user-approved"
+    }
+  ]
+}

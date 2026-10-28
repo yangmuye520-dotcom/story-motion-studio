@@ -46,6 +46,22 @@ def check(root):
    if urlsplit(target).scheme or target.startswith('#'):continue
    target=unquote(target.split('#')[0].split('?')[0]);counts['galleryLinks']+=1
    if not (f.parent/target).resolve().exists():errors.append('broken gallery link: '+f.name+' -> '+target)
+ for name in ['scripts/hyperframes.py','scripts/hf_pipeline.py','scripts/studio_localize.py','scripts/explanation_check.py','references/shared-production.md','assets/studio-zh/overlay.js','assets/studio-zh/labels.txt','assets/studio-zh/style.css','assets/quality-reference/preview.mp4','assets/quality-reference/poster.png','assets/quality-reference/visual-system.json']:
+  need(root/name,'HyperFrames integration resource missing')
+ profile=root/'assets/quality-reference/visual-system.json';video=root/'assets/quality-reference/preview.mp4'
+ if profile.is_file() and video.is_file():
+  expected=json.loads(profile.read_text(encoding='utf-8'))['referenceVideoSha256']
+  if hashlib.sha256(video.read_bytes()).hexdigest()!=expected:errors.append('frozen approved 2D reference changed')
+ template=root/'assets/templates/engineering-2d-v1'
+ for name in ['profile.json','preview.mp4','poster.png','index.html','modules.json','template-lock.json','assets/engineering-2d.css','assets/mechanism-motion.js']:
+  need(template/name,'default template missing')
+ if (template/'template-lock.json').is_file():
+  for rel,expected in json.loads((template/'template-lock.json').read_text(encoding='utf-8'))['files'].items():
+   fp=template/rel
+   if not fp.is_file() or hashlib.sha256(fp.read_bytes()).hexdigest()!=expected:errors.append('default template hash mismatch: '+rel)
+ need(root/'scripts/hf_template.py','default template installer missing')
+ labels=root/'assets/studio-zh/labels.txt'
+ if labels.is_file():counts['chineseLabels']=sum('|' in line for line in labels.read_text(encoding='utf-8').splitlines())
  return {'passed':not errors,'counts':counts,'errors':errors,'limits':'Navigation, resource presence and style hashes only; no video rendering, full watching, listening or upstream execution certification'}
 
 def main():

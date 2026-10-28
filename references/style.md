@@ -1,5 +1,7 @@
 # 固定视觉系统
 
+本文件以下是旧Canvas风格锁路线，新HyperFrames默认采用[暗色二维模板](approved-styles.md)和hf_pipeline初始化锁，不套用下述Canvas初始化命令
+
 随包starter仅验证技术；此前深色文件框影片被用户评价“不好看、没看懂”，不能将旧片、推荐项、技术成功算作审美认可。首次需短样和明确决定，已有认可直接沿用。
 
 锁定style.json中的颜色、字体、字号、线条、布局与motion；components.js的组件/动作；index.html中的舞台和字体入口。scenes.js允许故事和物件变化，但复用tokens/组件。哈希不能识别所有绕过tokens的代码，因此仍需样片对照。

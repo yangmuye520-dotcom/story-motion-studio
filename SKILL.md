@@ -1,26 +1,34 @@
 ---
 name: story-motion-studio
-description: 协同七个必需视频技能制作故事科普、流程解释与独立结构代码动画，内置三套视觉样板，无需每次提供外部参考，交付文稿、分镜、HTML与MP4；分析或局部修改只完成指定范围
+description: 协同七个必需视频技能制作故事科普、流程解释与独立结构动画，以统一分镜驱动HyperFrames中文工作台，交付文稿、HTML和MP4；分析或局部修改只完成指定范围
 ---
-# 故事动效工坊 v3
+# 故事动效工坊 v6
 
-用户入口见 [README](README.md)，迁移环境读[安装指南](docs/setup.md)，修改工程读[修改指南](docs/editing.md)
+用户入口见 [README](README.md)，新后端与迁移见[HyperFrames 接入](references/hyperframes.md)，协同与验收见[统一分镜](references/shared-production.md)
 
-## 范围与必需来源
+## 当前范围
 
-完整成片必须实际采用七个来源，职责和证据格式见[七项契约](references/roles.md)。技能是指导资料、示例和工具，不是七个视频模型；真实记录方法应用、代码适配与工具执行，不以旧片记录冒充新片执行
+完整片实际采用七个来源，不能只列名字。它们是指导资料、代码和工具，不是七个视频模型。每项贡献对应当前镜头与真实成果；不能复制旧片报告、为了调用数量硬塞动作或让七项各产一段再拼接
 
-本用户使用独立对象、文字、图表、粒子与结构，不生成人物和环境场景；默认中文屏幕叙述、无配音、免费工具、16:9横屏。其他偏好和适用范围见[用户约定](references/user-preferences.md)，本次明确要求优先
+本用户当前优先精细二维图解、文字、图表和独立对象，不新造人物与环境场景、不追求三维材质，默认中文屏幕讲解、无旁白、免费工具、16:9横屏、画面文字不加句号。用户本次明确要求优先，其余约定见[用户偏好](references/user-preferences.md)
 
-## 制作
+## 新片用 HyperFrames
 
-1. 读取需求和现有材料，运行 scripts/integrations.py doctor 与 scripts/studio.py doctor，核对七个来源和渲染环境；新项目用 studio.py init 创建，不覆盖旧工程
-2. 读[内容设计](references/story.md)，用 integrations.py read 读取七项真实资料，按职责做当前内容。文稿与分镜可以合在 storyboard.md，资料见 sources.md；film.json 为时序源，compile生成 timeline.json。七项必需成果和来源记录保留，独立交接文档、重复文稿和执行日志按需要生成，不默认堆积
-3. 读[内置风格](references/approved-styles.md)与[运动质量](references/motion-quality.md)。没有外部参考也直接从内置三套中选择：默认黑金为主视觉，结构/粒子服务机制解释；用户点名风格优先。init 不指定风格时使用黑金，提供 motion-kit.js 与动作参考源码，故事与构图仍需按内容实现
-4. 先完成连续10秒，包含阅读停留、实质对象变化与一次承接，交付讲稿、分镜和短样。用户确认前止于样片；明确委托直接做完整片则按委托范围执行。内置认可不冒充新片认可
-5. 沿用同一视觉与运动系统制作整片。风格和素材锁按[制作命令](references/production.md)处理；指定BGM需实际来源，收费先说明，不自动继承样例音轨
-6. 按[验收](references/review.md)检查连续段、转场、阅读、乱序绘制、字体、音轨和完整解码，正式render生成candidate.mp4。按video-shotcraft要求，由未参与制作的审查者实际检查候选，修复阻断项后通过 integrations.py release 发布final.mp4
+1. 检查 scripts/integrations.py doctor 与 scripts/hyperframes.py doctor --json，区分必需故障和未采用的可选组件。先读四个官方核心技能 hyperframes、hyperframes-cli、hyperframes-registry、media-use；按需读引用。运行时放技能目录外，固定版本，不隐式升级或调用收费服务
+2. 用 hyperframes.py --project PARENT init NEW_NAME 创建新工程，自动绑定七个来源、生成统一计划入口与视觉锁；不覆盖旧目录。explanation.json 是唯一内容源，storyboard.md 由 hf_pipeline.py board 生成。读[讲解质量](references/explainer-quality.md)，写清每镜“讲什么、哪个对象怎样变化、因此明白什么”、事实依据、阅读停留和下一镜承接
+3. 用 integrations.py read 读取七项真实资料，按[协同分工](references/shared-production.md)影响同一工程。wtt管信息与时序，lemo管问题推进与回扣，huashu管对象变化，shotcraft管镜头节奏与独立审片，dashi管视觉和阅读，mg锚定实际动效代码，xilo管实际检查与导出证据。先完成共同计划再记录贡献，不能启动多个竞争时间线
+4. 默认使用 assets/templates/engineering-2d-v1 的暗色精细二维模板；init 自动复制真实CSS、字体和动作源码并建立锁。读[风格选择](references/approved-styles.md)与[动作模块](references/mechanism-modules.md)，每镜按内容填写 mechanism 的 family、selectionReason、observableChange、readingHold 并落实到真实元素。黑金＋三维结构＋粒子仅为可选风格，浅色冻结参考保留。参考认可不等于新片或新增动作认可，风格变更先做连续样片确认
+5. 先交付文稿、统一分镜与连续10秒样片，包含实际对象变化、阅读停留和一次承接。用户确认前止于样片；明确委托直接整片则按委托范围执行。preview 自动应用包内中文界面补丁，不进入预览iframe、不改用户正文、源码或文件名；冷门第三方诊断保留原文
+6. 沿同一视觉系统扩展，按拆分归并、队列并发、局部更新、双路对照等知识关系选择动作，不用重复入场代替机制，不要求每片用齐模块。HF每个组合一个暂停GSAP时间线，所有状态由时间确定；查询组件库后按需复用，没有合适项再自己实现。素材本地化并登记来源和许可，指定BGM使用真实来源，不自动继承参考音乐
+7. 用 hf_pipeline.py audit 做原生检查、实际运动采样、正反取样一致性和审片图；record 记录七项真实贡献，coverage核对当前版本。candidate 实际渲染并检查尺寸、帧率、帧数、时长、音轨和完整解码。原生警告逐项处理，不用总分掩盖问题
+8. 按 content、continuity、readability、export 四项分别独立审查，实际全速观看；有音轨则实际听音。缺少理解测试标 unverified，不把分析音量当试听。检查、候选、素材与分镜绑定当前哈希，修复阻断项后 hf_pipeline.py release 发布final.mp4；integrations.py check/release 会按后端路由。字段和哈希不能证明审美、事实或理解，审查要有具体镜头证据
 
-完成标准：内容讲清楚、动作对应机制、七项当前贡献可追溯、连续画面和音轨实际检查、MP4可播放、HTML工程自包含。检查未覆盖的部分如实说明，技术通过不等于审美认可
+冲突优先：事实与讲清楚 → 阅读和连续性 → 已认可视觉系统 → 动效表现 → 单项技能一般偏好。不能为了满足七项把画面弄乱
 
-样例入库时才读[样例管理](references/examples.md)，修改视觉体系时才读[风格锁](references/style.md)。历史失败项目和中间素材留在项目或外部归档，不塞回技能安装目录
+## 既有工程与维护
+
+旧 Canvas 项目继续 studio.py 路线，原角色契约、素材锁与发布检查不降级，不自动迁移。新片不再维护 film.json 等竞争内容源；旧片的 film.json 继续有效
+
+只做分析、文稿或局部修改时完成指定范围，不自动重做整片、发布或上传。修改前检查当前文件和用户已有改动
+
+样例入库才读[样例管理](references/examples.md)。历史失败、执行日志与重运行时留在项目或外部备份，不塞回技能安装目录；轻量汉化补丁和已认可参考保留在assets。未请求时不更新GitHub

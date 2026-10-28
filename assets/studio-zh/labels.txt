@@ -1,0 +1,410 @@
+Capture|截图
+Inspector|属性检查器
+Window|窗口
+Install the desktop app|安装桌面应用
+Get the free HyperFrames desktop app|获取免费的 HyperFrames 桌面应用
+Export|导出
+Compositions|动画组合
+Composition|动画组合
+Assets|素材
+Code|代码
+Catalog|组件库
+Preview|预览
+Design|设计
+Layers|图层
+Renders|渲染任务
+Variables|变量
+Blur|模糊
+Timeline|时间线
+Nothing selected|尚未选择元素
+Click any element on the canvas to edit it, or drag to select several.|点击画布中的元素进行编辑，或拖动框选多个元素
+Record a gesture|录制手势
+Record gesture (R)|录制手势 (R)
+Describe a change to the agent|向智能体描述修改要求
+Ask agent about this element|让智能体修改此元素
+Ask agent|询问智能体
+What should change?|需要修改什么？
+Capture current frame|截取当前画面
+Switch to dark theme|切换深色主题
+Switch to light theme|切换浅色主题
+Panel menu|面板菜单
+Maximize panel|最大化面板
+Restore panel|还原面板
+Close group|关闭面板组
+Close|关闭
+Close tab|关闭标签页
+Pin tab|固定标签页
+Unpin tab|取消固定
+Reset layout|重置布局
+Reset|重置
+Reset to default|恢复默认值
+Layout|布局
+Collapse|收起
+Expand|展开
+Position|位置
+Size|尺寸
+Width|宽度
+Height|高度
+Angle|角度
+Scale|缩放
+Opacity|不透明度
+Rotation|旋转
+Transform|变换
+Transform Origin|变换原点
+Perspective|透视
+3D TRANSFORM|三维变换
+Reset 3D orientation|重置三维朝向
+Keyframe 3D transform|三维变换关键帧
+Keyframe the 3D transform (animate it over time)|为三维变换添加关键帧，使其随时间变化
+Drag to tilt · Shift-drag to roll · Scroll for depth|拖动倾斜 · Shift＋拖动翻转 · 滚动调整深度
+Scroll or use Arrow keys to adjust|滚动或使用方向键调整
+RotX|X轴旋转
+RotY|Y轴旋转
+RotZ|Z轴旋转
+Z-index|叠放层级
+Motion|动效
+Effects|效果
+Effect|效果
+Add effect|添加效果
+Add effect property|添加效果属性
+Add a new animation effect to this element|为此元素添加动画效果
+Add an animation|添加动画
+Animation|动画
+Animate|制作动画
+Animate In|入场动画
+Timing|时序
+Start|开始
+End|结束
+Duration|时长
+Delay|延迟
+Ease|缓动
+Easing|缓动曲线
+Linear|匀速
+Custom|自定义
+None|无
+Default|默认
+Enabled|已启用
+Disabled|已禁用
+Enable|启用
+Disable|禁用
+Play|播放
+Pause|暂停
+Stop|停止
+Playback speed|播放速度
+Preview volume|预览音量
+Seek preview|拖动预览进度
+Mute audio|静音
+Unmute audio|取消静音
+Mute|静音
+Unmute|取消静音
+Enable loop playback|启用循环播放
+Disable loop playback|关闭循环播放
+Enter fullscreen|进入全屏
+Exit fullscreen|退出全屏
+Shortcuts and tools|快捷键与工具
+Master|主组合
+Back to parent composition|返回上级组合
+Back (Esc, or double-click empty timeline)|返回（Esc，或双击时间线空白处）
+Composition navigation|组合导航
+Composition preview|组合预览
+Composition canvas|组合画布
+Set motion destination|设置运动终点
+Toggle ruler|切换标尺
+Ruler off|标尺已关闭
+Ruler on|标尺已开启
+Toggle safe margins|切换安全边距
+Safe margins off|安全边距已关闭
+Safe margins on|安全边距已开启
+Toggle snap|切换吸附
+Snap disabled (S)|吸附已关闭 (S)
+Snap enabled (S)|吸附已开启 (S)
+Toggle grid|切换网格
+Grid options|网格选项
+Grid hidden (G). Right-click for spacing options|网格已隐藏 (G)，右键设置间距
+Grid visible (G). Right-click for spacing options|网格已显示 (G)，右键设置间距
+Fit|适应窗口
+Undo|撤销
+Redo|重做
+Select|选择
+Selection|选区
+Linked Selection|关联选择
+Toggle timeline snapping|切换时间线吸附
+Toggle ripple edit|切换波纹编辑
+Split at playhead|在播放头处分割
+Add beat at playhead|在播放头处添加节拍
+Add keyframe at playhead|在播放头处添加关键帧
+Add keyframe|添加关键帧
+Add a keyframe|添加关键帧
+Previous keyframe|上一个关键帧
+Next keyframe|下一个关键帧
+Auto-record manual edits as keyframes|自动将手动修改记录为关键帧
+Auto-record manual edits as keyframes (click to turn off)|自动记录关键帧（点击关闭）
+Hide thumbnails: labels only|隐藏缩略图，仅显示标签
+Show thumbnails|显示缩略图
+Zoom to selected clips|缩放到选中片段
+Zoom timeline to selected clips|缩放到选中片段
+Fit timeline to width|时间线适应窗口宽度
+Zoom out|缩小
+Zoom in|放大
+Timeline zoom|时间线缩放
+Timeline zoom level|时间线缩放比例
+Timeline track view|时间线轨道视图
+Timeline tracks|时间线轨道
+Track|轨道
+Tracks|轨道
+Add timeline asset|添加时间线素材
+Add at playhead|添加到播放头位置
+Add composition to timeline|将组合加入时间线
+Add to composition at current time|在当前时间加入组合
+Root composition: opens automatically on load|主组合：加载时自动打开
+ROOT|主组合
+Lint|代码检查
+All checks passed|全部检查通过
+No issues found|未发现问题
+Warnings|警告
+Warning|警告
+Errors|错误
+Error|错误
+Details|详情
+Copy error|复制错误
+Copy details|复制详情
+Try again|重试
+Retry|重试
+Dismiss|关闭提示
+Loading|正在加载
+Loading…|正在加载…
+Saving…|正在保存…
+Saved|已保存
+Unsaved|未保存
+Pending|等待中
+Queued|排队中
+Running|进行中
+Completed|已完成
+Failed|失败
+Cancelled|已取消
+Cancel|取消
+Confirm|确认
+Continue|继续
+Done|完成
+Apply|应用
+Applying|正在应用
+Applied|已应用
+Add|添加
+Remove|移除
+Delete|删除
+Duplicate|创建副本
+Copy|复制
+Copied|已复制
+Copied!|已复制
+Paste|粘贴
+Cut|剪切
+Rename|重命名
+Name|名称
+Search|搜索
+Search…|搜索…
+Search assets|搜索素材
+Search compositions|搜索动画组合
+Search layers|搜索图层
+Search variables|搜索变量
+Search catalog|搜索组件库
+Filter|筛选
+All|全部
+All projects|全部项目
+All project media|全部项目素材
+Projects|项目
+Project|项目
+Open|打开
+Open file|打开文件
+New file|新建文件
+New folder|新建文件夹
+Import|导入
+Upload|上传
+Download|下载
+Uploading…|正在上传…
+Rendering|正在渲染
+Rendering…|正在渲染…
+Render|渲染
+Render video|渲染视频
+Start render|开始渲染
+Cancel render|取消渲染
+Render complete|渲染完成
+Render failed|渲染失败
+No renders yet|暂无渲染任务
+Output|输出
+Format|格式
+Resolution|分辨率
+Frame rate|帧率
+Quality|画质
+Standard|标准
+High|高
+Low|低
+Medium|中
+Custom resolution|自定义分辨率
+Use GPU encoding|使用GPU编码
+Transparent background|透明背景
+About video formats|视频格式说明
+Available when the render finishes|渲染完成后可用
+A render is already in progress|已有渲染任务正在进行
+Audio|音频
+Audio FX|音频效果
+Audio Gain|音频增益
+Audio Gain…|音频增益…
+Volume|音量
+Gain|增益
+Music|音乐
+Voiceover|旁白
+Voice|人声
+Sound|声音
+Sound effects|音效
+Video|视频
+Image|图片
+Images|图片
+Font|字体
+Fonts|字体
+Text|文字
+Text content|文字内容
+Font size|字号
+Font family|字体
+Font weight|字重
+Line height|行高
+Letter spacing|字间距
+Color|颜色
+Colors|颜色
+Background|背景
+Background color|背景颜色
+Fill|填充
+Stroke|描边
+Border|边框
+Border radius|圆角
+Shadow|阴影
+Blur radius|模糊半径
+Align|对齐
+Left|左
+Right|右
+Top|上
+Bottom|下
+Center|居中
+Horizontal|水平
+Vertical|垂直
+Padding|内边距
+Margin|外边距
+Spacing|间距
+Group|编组
+Ungroup|取消编组
+Group elements|将元素编组
+Ungroup elements|取消元素编组
+Hide element|隐藏元素
+Show element|显示元素
+Clear selection|取消选择
+Copy element info to clipboard|复制元素信息
+Copy element info for any AI agent|复制供AI智能体使用的元素信息
+Visibility|可见性
+Visible|可见
+Hidden|隐藏
+Visible: click to hide|当前可见，点击隐藏
+Hidden: click to show|当前隐藏，点击显示
+Properties|属性
+Attribute|属性
+Source|来源
+Source file|源文件
+Edit source|编辑源码
+Variable name|变量名
+Variable value|变量值
+Add variable|添加变量
+Add text|添加文字
+Add text field|添加文字字段
+No variables|暂无变量
+No assets|暂无素材
+No results|没有匹配结果
+Refresh|刷新
+Settings|设置
+Help|帮助
+Keyboard shortcuts|键盘快捷键
+Reset all|全部重置
+Reset property|重置属性
+Reset animation|重置动画
+Use default palette|使用默认配色
+Transition|转场
+Transitions|转场
+Presets|预设
+Preset|预设
+Apply preset|应用预设
+Filters|滤镜
+Background removal failed|背景移除失败
+Video failed to load|视频加载失败
+Upload failed. Check the file and try again.|上传失败，请检查文件后重试
+Upload failed: network error|上传失败：网络连接错误
+Upload rejected: payload too large|上传被拒绝：文件过大
+Unknown save failure|保存失败，原因未知
+Active project changed before the edit could be saved|保存修改前，当前项目已切换
+Auto-save is paused. Check your connection.|自动保存已暂停，请检查连接
+Auto-save is paused. Dismiss the warning to retry DOM edits.|自动保存已暂停，关闭警告后可重试元素编辑
+Wait for the composition to load, then retry.|请等待动画组合加载完毕后重试
+Waiting for images, video and fonts to finish loading.|正在等待图片、视频和字体加载完成
+Waiting for media and motion assets before playback starts.|播放前正在等待媒体和动画素材加载
+Waiting for runtime|正在等待动画运行环境
+Viewport failed to stabilize|预览画面未能稳定加载
+Unable to copy this element.|无法复制此元素
+Video source has invalid dimensions|视频源的尺寸无效
+Video source has no decodable video track|视频源中没有可解码的视频轨道
+A keyframe already exists at that time|该时间已有关键帧
+A beat already exists at the playhead|播放头位置已有节拍
+Would move the clip before 0:00|此操作会将片段移到零秒之前
+Would slip before the start of the file|此操作会超出文件起始位置
+Add at least 2 position keyframes to enable arc motion.|至少添加两个位置关键帧才能启用弧线运动
+Animation editing isn't applied to playback or saved yet, so these controls are disabled.|动画编辑尚未应用到播放或保存，因此这些控件暂不可用
+Composition source has no valid data-composition-duration|组合源文件缺少有效的时长声明 data-composition-duration
+Failed to fetch|无法连接到本地服务
+Failed to load|加载失败
+Network error|网络连接错误
+Not found|未找到
+File not found|文件不存在
+Permission denied|没有访问权限
+Connection refused|连接被拒绝
+Internal Server Error|服务器内部错误
+Unexpected end of input|代码意外结束，请检查是否缺少括号或引号
+Unexpected token|存在无法识别的代码符号
+Eyebrow|引导文字
+Heading|标题
+Steps|流程步骤
+Step Code|步骤：代码
+Step Browser|步骤：浏览器
+Step Frames|步骤：连续帧
+Step Output|步骤：视频
+Captions|字幕
+Root|主组合
+Auto|自动
+No effects|无效果
+No compositions found|未找到动画组合
+Select a clip to zoom the timeline|请先选择一个片段，再缩放时间线
+Drop media here or describe your video to start|拖入素材，或描述你想制作的视频
+Drop media here|将素材拖到这里
+Resize rows|调整行高
+Resize columns|调整列宽
+Content|内容
+Weight|字重
+Style|样式
+Case · Style|大小写与样式
+Thin|极细
+Extra Light|特细
+Light|细体
+Regular|常规
+Semi Bold|半粗
+Bold|粗体
+Extra Bold|特粗
+Black|极粗
+left|左对齐
+center|居中对齐
+right|右对齐
+justify|两端对齐
+none|无
+uppercase|全部大写
+lowercase|全部小写
+capitalize|首字母大写
+upright|正体
+italic|斜体
+Pick color color|选择文字颜色
+Normal|正常
+normal|正常
+Connecting to project…|正在连接项目…
+Fill set|已设置填充

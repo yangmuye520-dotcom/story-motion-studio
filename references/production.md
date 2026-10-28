@@ -1,3 +1,5 @@
+> 下列旧文件契约适用于 Canvas 路线。HyperFrames 新工程以[统一分镜与四项验收](shared-production.md)为准，不能两套报告混用
+
 # v2 制作入口
 
 1. `python scripts/integrations.py doctor`：七包必须齐，lemo入口之外还需真实DIRECTOR.md。
@@ -16,3 +18,8 @@
 原生huashu工具若报红，查实际问题；其短屏上字与主叙述分开，不把完整字幕藏进短标签字段骗检查。其他上游整套引擎没跑就不要说跑过。
 
 samples.py管理样例库；portable bundle仍不含七包，换电脑需装齐并绑定真实版本。Windows兼容由本包适配，原包脚本失败不能冒充原生成功。
+
+
+## HyperFrames 新工程
+
+新工程的执行、安装与发布边界读[HyperFrames 接入](hyperframes.md)，内容与画面对应读[讲解质量](explainer-quality.md)。七项实际贡献仍必需；旧 Canvas 验收字段不可伪造或冒充新后端的检查结果

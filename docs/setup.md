@@ -4,12 +4,19 @@
 
 这里说明制作环境，普通用户可直接让 Codex 代为检查。检查命令不会自动安装或下载
 
+## 当前默认路线
+
+新项目使用HyperFrames和暗色精细二维模板，仍需七个上游来源
+旧安装器负责七项与基础Python/浏览器工具；Node.js、固定HyperFrames运行时、四个官方核心技能另按[HyperFrames接入](../references/hyperframes.md)配置
+中文补丁随本技能携带，默认模板与四类动作无需另找外部视频，但运行工具本身仍须安装
+单独播放MP4不需要以上制作环境
+
 ## 三种使用情况
 
 | 你要做什么 | 需要什么 |
 |---|---|
 | 观看 MP4 | 普通视频播放器 |
-| 播放已有 HTML | 完整工程、浏览器、本地 HTTP 服务 |
+| 播放已有 HTML | 完整工程、浏览器；新工程用HyperFrames，旧Canvas用本地HTTP服务 |
 | 按总技能重新制作或导出 | 本技能、七个上游、实际资料库与运行工具 |
 
 ## 技能目录
@@ -93,3 +100,8 @@ python scripts/studio.py doctor
 `examples` 包含完整工程和本地参考原片，因此体积较大。不要随意删掉字体、vendor 或素材来压缩体积，可能破坏预览与复用
 
 给别人看结果通常发送 MP4 即可。要传工程则带齐素材和来源说明；第三方参考原片、音乐以及本机私有配置不自动纳入公开分享
+
+
+## HyperFrames 新工程
+
+新工程的执行、安装与发布边界读[HyperFrames 接入](../references/hyperframes.md)，内容与画面对应读[讲解质量](../references/explainer-quality.md)。七项实际贡献仍必需；旧 Canvas 验收字段不可伪造或冒充新后端的检查结果

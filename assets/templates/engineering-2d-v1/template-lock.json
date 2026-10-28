@@ -1,0 +1,21 @@
+{
+  "id": "engineering-2d-v1",
+  "files": {
+    "demo.html": "a217f63a042f853d5968b478ba5b64e2e274ac20f37ff39adbfed809e042d7fc",
+    "index.html": "bf3eca7ecb9dfb793d81357785798b08896d296818dd41c3b31b40295a30834c",
+    "modules-demo.mp4": "5809e72b57e9ccf7076d8bccd4ade67adddaa8da5f2c946ff2662d02f450ca95",
+    "modules.json": "4867981135487ce1c464515ae3dea2814d7e0342c2d3443de4f02e408442883f",
+    "poster.png": "ee1279423850d80802982c8b3122d2fc223c77e52292a6d113d502ef5ef2b87e",
+    "preview.mp4": "7dfe52ef49b56279cfc9e4326d5bec7def9d907c1c65e0034a1189f8d3e92076",
+    "profile.json": "e2ff43e1e87b77903e2664f28ed3ca7e16494898a41d7905b95ffe03a59b9859",
+    "assets/engineering-2d.css": "8a3699bb6de47ce2154a71dbbcfec375d2dd72f072f4e312f1273a8b23ff5c97",
+    "assets/gsap.min.js": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+    "assets/mechanism-motion.js": "c6e34aa4b51bce25e873f6dfb02658853583511f5841ebf10d5f5acb855dee24",
+    "compositions/dual-compare.html": "4f3ecb78fda9161135a2a92ef272692a1e4ca83e9aa035ffc8feeb740c25ca08",
+    "compositions/local-patch.html": "5df96281e8de12b858447722cd198cfb45eeb02d88332dff8ff2187c59607878",
+    "compositions/queue-concurrency.html": "9320fe8671bbd484682f5aec108ff0a228f6f28f3c3c8d08ebc98c25f098bd83",
+    "compositions/split-merge.html": "2be8f4b7ae6bcbeb49ad4a64be9da669cab268242ae09db45833cad710b6c7b0",
+    "assets/fonts/OFL.txt": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9",
+    "assets/fonts/StudioSans.ttf": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da"
+  }
+}

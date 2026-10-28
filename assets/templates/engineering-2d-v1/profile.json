@@ -1,0 +1,54 @@
+{
+  "id": "engineering-2d-v1",
+  "referenceVideoSha256": "7dfe52ef49b56279cfc9e4326d5bec7def9d907c1c65e0034a1189f8d3e92076",
+  "approval": "用户2026-10-28明确要求将当前暗色精细二维表现设为主要模板",
+  "scope": "沿用认可风格，不表示新动作模块或新片已经获用户验收",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "viewingWidth": 1280
+  },
+  "palette": {
+    "background": "#0a101a",
+    "ink": "#e7eef8",
+    "primary": "#a9c1ff",
+    "signal": "#e3b16c",
+    "result": "#87e4db",
+    "line": "#425870"
+  },
+  "type": {
+    "heading": 44,
+    "main": 40,
+    "label": 30,
+    "minimumFinalLabel": 28,
+    "rule": "缩放后验证实际字号；退出焦点的重复标签退场，不能留下微缩说明"
+  },
+  "layout": {
+    "titleSafeInset": 0.1,
+    "focus": "同一时刻一个主要解释变化，保留已建立的关系",
+    "density": "逐步积累关系与证据，不同时堆满文字"
+  },
+  "motion": {
+    "transferSeconds": [
+      0.6,
+      1.2
+    ],
+    "emphasisSeconds": [
+      0.2,
+      0.4
+    ],
+    "ease": "power2.inOut / power3.out，匀速仅用于时间与数据进程",
+    "continuity": "保留对象身份、语义颜色、形状或明确映射",
+    "darkVariant": "A工程结构与描线，B仅一次输入信号汇聚，无装饰粒子和光晕"
+  },
+  "banned": [
+    "新造人物或环境场景",
+    "追求三维材质",
+    "整屏大字代替机制",
+    "无意义循环浮动与发光",
+    "每镜清空重摆卡片",
+    "为满足七项贡献而硬加画风或动作"
+  ],
+  "review": "技术检查、视觉审查与目标观众理解测试分别记录，不把其中一个当成另外两个"
+}
