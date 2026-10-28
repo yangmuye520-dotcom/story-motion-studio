@@ -17,7 +17,7 @@ def state(root):
   rel=p.relative_to(root);parts=rel.parts
   if any(x.startswith('.') or x in ['node_modules','qa','tools'] or x.startswith('review') for x in parts):continue
   if rel.as_posix() in ['candidate.mp4','final.mp4']:continue
-  if p.suffix.lower() in ['.html','.js','.css','.svg','.ttf','.woff','.woff2','.wav','.mp3','.png','.jpg','.mp4'] or rel.as_posix() in ['explanation.json','visual-system.json','style-lock.json','integration/hf-contributions.json','integration/source-lock.json']:
+  if p.suffix.lower() in ['.html','.js','.css','.svg','.ttf','.woff','.woff2','.wav','.mp3','.png','.jpg','.mp4'] or rel.as_posix() in ['explanation.json','visual-system.json','style-lock.json','integration/hf-contributions.json','integration/source-lock.json','assets/motion-catalog.json']:
    files.append(rel.as_posix())
  return {name:sha(root/name) for name in sorted(files)}
 def seed(root):
@@ -27,7 +27,7 @@ def seed(root):
  legacy=root/'integration/contributions.json'
  if legacy.exists() and read(legacy).get('records')=={}:legacy.unlink()
  write(root/'style-lock.json',{'profileSha256':sha(root/'visual-system.json'),'referenceVideoSha256':profile['referenceVideoSha256'],'templateId':hf_template.DEFAULT,'templateAssets':template_assets,'approval':'user selected the dark fine 2D look as default on 2026-10-28; modules and new films still need review'})
- write(root/'explanation.json',{'schema':'shared-storyboard/v1','audience':'','question':'','takeaway':'','carrier':'','duration':0,'fps':30,'width':1920,'height':1080,'shots':[]})
+ write(root/'explanation.json',{'schema':'shared-storyboard/v1','motionContract':'semantic-motion/v1','objects':[],'audience':'','question':'','takeaway':'','carrier':'','duration':0,'fps':30,'width':1920,'height':1080,'shots':[]})
  write(root/'integration/hf-contributions.json',{'schema':'seven-shared/v1','records':{}})
 def plan(root):
  report=explanation_check(root);assert report['structurePassed'],str(report['errors'])
@@ -59,6 +59,9 @@ def plan(root):
   for rel,value in lock.get('templateAssets',{}).items():
    assert sha(root/rel)==value,'Shared template changed; create explicit style/module revision: '+rel
   allowed={'split-merge','queue-concurrency','local-patch','dual-compare','transfer','mapping','custom'}
+  if p.get('motionContract')=='semantic-motion/v1':
+   from semantic_motion import catalog
+   allowed={x['id'] for x in catalog()}
   for shot in p['shots']:
    action=shot.get('mechanism',{})
    assert action.get('family') in allowed,shot['id']+': choose an explanation action family'
@@ -69,6 +72,8 @@ def board(root):
  p=plan(root);rows=['# 统一分镜表','', '本表由 explanation.json 生成，改内容请修改该文件后重新生成，不维护第二份分镜','', '| 镜头/时间 | 讲什么 | 对象与变化 | 因此明白什么 | 承接与阅读 | 实现 |','|---|---|---|---|---|---|']
  for s in p['shots']:
   cols=[s['id']+' / '+str(s['start'])+'–'+str(s['start']+s['duration'])+'秒',s['claim'],s['object']+'：'+s['before']+' → '+s['action']+' → '+s['after'],s['meaning']+'；依据：'+s['evidence'],s['transition']+'；阅读：'+s['reading'],'、'.join(s['implementation'])]
+  if p.get('motionContract'):
+   cols[2]+='；动作：'+s['mechanism']['family']+'；对象ID：'+','.join(x['objectId'] for x in s['objectStates'])
   rows.append('| '+' | '.join(str(c).replace('|','／').replace('\n',' ') for c in cols)+' |')
  (root/'storyboard.md').write_text('\n'.join(rows)+'\n',encoding='utf-8')
 def record(root,skill,source_key,quote,shots,artifact,anchor,decision):

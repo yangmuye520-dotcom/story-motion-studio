@@ -37,14 +37,26 @@ BGM：[提供音频或视频路径，或先不加音乐]
 | 黑金结构粒子 · 可选 | 结构、聚合、空间关系 | 黑金为主，少量独立结构与粒子表达状态，不强求三者同时出现 |
 
 历史黑金讲解、三维结构、情境粒子三个方向及无声样例继续保留：[历史样例网页](https://yangmuye814.github.io/story-motion-studio/examples/)
-[查看默认暗色模板与四类动作演示](https://yangmuye814.github.io/story-motion-studio/examples/engineering-2d/demo.html)
+[观看暗色模板与四类初始动作演示](https://yangmuye814.github.io/story-motion-studio/examples/engineering-2d/demo.html)
 
 暗色参考和源码在 [主要模板目录](assets/templates/engineering-2d-v1/)，[10秒无声参考](assets/templates/engineering-2d-v1/preview.mp4) 展示已认可的风格
-[四个新增动作组成48秒无声示范](assets/templates/engineering-2d-v1/modules-demo.mp4)，可在本地HyperFrames工作台预览；它们是可运行起点，不等于用户已认可新成片
+[四个初始动作组成48秒无声示范](assets/templates/engineering-2d-v1/modules-demo.mp4)，可在本地HyperFrames工作台预览；它们是可运行起点，不等于用户已认可新成片
 
-[打开24种动态效果展示网页](https://yangmuye814.github.io/story-motion-studio/examples/motion-library/)
+## 24项动作自动选用与对象追踪
 
-可暂停、拖动进度、按分类筛选并复制选用提示词，标明现成视频模块与需要适配的网页演示
+你不需要逐个手动调用，Codex先根据资料判断本镜要解释的关系，再检查动作前提，选用对应接口
+例如有明确容量才演示队列，有同条件输入才做双路对照，有真实数值才画数值图，缺资料会指出缺什么
+
+24项现在都提供统一视频接口MotionActions.add，调用同一条HyperFrames暂停时间线，绑定工程里真实的HTML对象
+这表示有可调用的适配代码与示例，不表示不改参数和内容就能得到高质量新片
+
+动作参数从统一分镜生成到HTML，检查会拦住两边配置不一致，避免维护两份参数
+
+对象通过固定ID、来源、派生父对象与每镜状态追踪，上一镜结果进入下一镜时需明确交接
+未注册对象、缺少节点、无说明的标签或状态变化、循环来源和应承接对象消失，会被结构检查拦住
+章节切换可以明确重新开始，不需要伪造同一对象
+
+[完整规则与调用示例](references/action-routing.md) · [24种网页动态展示](https://yangmuye814.github.io/story-motion-studio/examples/motion-library/)
 
 ## 动作按内容选
 
@@ -169,4 +181,4 @@ BGM按本次提供的真实素材准备，不继承样片音乐，不保证素�
 - `assets/studio-zh/`：中文界面适配
 - `scripts/`：初始化、接入、检查与导出；重运行时不装进技能目录
 
-当前版本包含默认暗色二维模板、HyperFrames中文界面适配与四类解释动作模块，示范视频为无声版本
+当前v7已提供24项统一动作接口、内容关系选用规则和跨镜对象追踪，新工程启用新契约，旧工程不自动改变

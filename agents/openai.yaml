@@ -1,4 +1,4 @@
 interface:
   display_name: "故事动效工坊 · 七技能与中文工作台"
-  short_description: "统一分镜驱动七技能协作，默认暗色精细二维与语义动作，以HyperFrames交付HTML与MP4"
-  default_prompt: "使用 $story-motion-studio，以统一分镜组织七项真实贡献，使用默认暗色精细二维模板并按内容选拆分归并、队列并发、局部更新或双路对照，启用HyperFrames中文工作台，先给讲稿、分镜和连续样片，确认后按四项验收制作完整视频"
+  short_description: "24项动作按内容选用、跨镜对象追踪与七技能协作，默认暗色精细二维与语义动作，以HyperFrames交付HTML与MP4"
+  default_prompt: "使用 $story-motion-studio，以统一分镜组织七项真实贡献，使用默认暗色精细二维模板并按资料关系自动选用24项统一动作接口，并登记来源、对象状态与跨镜交接，启用HyperFrames中文工作台，先给讲稿、分镜和连续样片，确认后按四项验收制作完整视频"

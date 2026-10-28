@@ -1,0 +1,1929 @@
+{
+  "schema": "semantic-motion-catalog/v1",
+  "items": [
+    {
+      "id": "split",
+      "title": "原文拆分",
+      "cat": "数据整理",
+      "use": "解释一份输入怎样拆成多个处理单元",
+      "observe": "原文中的四段保持文字与颜色，依次移出",
+      "limit": "切块不等于摘要，片段数量仅作示意",
+      "bindings": [
+        "items"
+      ],
+      "relation": "decomposition",
+      "requiredFacts": [
+        "inputCount",
+        "outputCount"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "split",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "items": [
+            "#split-item0",
+            "#split-item1",
+            "#split-item2",
+            "#split-item3"
+          ]
+        },
+        "params": {
+          "from": [
+            [
+              60,
+              45
+            ],
+            [
+              60,
+              120
+            ],
+            [
+              60,
+              195
+            ],
+            [
+              60,
+              270
+            ]
+          ],
+          "to": [
+            [
+              1100,
+              45
+            ],
+            [
+              1100,
+              120
+            ],
+            [
+              1100,
+              195
+            ],
+            [
+              1100,
+              270
+            ]
+          ]
+        }
+      },
+      "exampleFile": "examples/action-split.html"
+    },
+    {
+      "id": "merge",
+      "title": "证据归并",
+      "cat": "数据整理",
+      "use": "解释相关片段如何整理成同主题结果",
+      "observe": "四条来源进入两组，条目身份没有丢失",
+      "limit": "不能把不相容的证据强行归并，也不意味着删除来源",
+      "bindings": [
+        "items",
+        "result"
+      ],
+      "relation": "consolidation",
+      "requiredFacts": [
+        "inputCount",
+        "outputCount"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "merge",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "items": [
+            "#merge-item0",
+            "#merge-item1",
+            "#merge-item2",
+            "#merge-item3"
+          ],
+          "result": "#merge-result"
+        },
+        "params": {
+          "from": [
+            [
+              60,
+              45
+            ],
+            [
+              60,
+              120
+            ],
+            [
+              60,
+              195
+            ],
+            [
+              60,
+              270
+            ]
+          ],
+          "to": [
+            [
+              1100,
+              80
+            ],
+            [
+              1100,
+              155
+            ],
+            [
+              1100,
+              280
+            ],
+            [
+              1100,
+              355
+            ]
+          ],
+          "via": [
+            [
+              540,
+              45
+            ],
+            [
+              540,
+              120
+            ],
+            [
+              540,
+              195
+            ],
+            [
+              540,
+              270
+            ]
+          ]
+        }
+      },
+      "exampleFile": "examples/action-merge.html"
+    },
+    {
+      "id": "group",
+      "title": "按属性分类",
+      "cat": "数据整理",
+      "use": "类别、聚类、标签与分桶",
+      "observe": "六个对象按已有属性进入三列",
+      "limit": "颜色表示示例属性，不代表模型自动分类必然准确",
+      "bindings": [
+        "items"
+      ],
+      "relation": "classification",
+      "requiredFacts": [
+        "classificationBasis"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "group",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "items": [
+            "#group-item0",
+            "#group-item1",
+            "#group-item2",
+            "#group-item3"
+          ]
+        },
+        "params": {
+          "from": [
+            [
+              60,
+              45
+            ],
+            [
+              60,
+              120
+            ],
+            [
+              60,
+              195
+            ],
+            [
+              60,
+              270
+            ]
+          ],
+          "to": [
+            [
+              700,
+              130
+            ],
+            [
+              1100,
+              130
+            ],
+            [
+              700,
+              290
+            ],
+            [
+              1100,
+              290
+            ]
+          ]
+        }
+      },
+      "exampleFile": "examples/action-group.html"
+    },
+    {
+      "id": "filter",
+      "title": "条件筛选",
+      "cat": "数据整理",
+      "use": "解释什么被保留、什么被排除",
+      "observe": "同一批条目经过条件后进入不同区域",
+      "limit": "未匹配不等于错误或无价值，只是不符合本次条件",
+      "bindings": [
+        "items"
+      ],
+      "relation": "selection",
+      "requiredFacts": [
+        "criterion"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "filter",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "items": [
+            "#filter-item0",
+            "#filter-item1",
+            "#filter-item2",
+            "#filter-item3"
+          ]
+        },
+        "params": {
+          "from": [
+            [
+              60,
+              45
+            ],
+            [
+              60,
+              120
+            ],
+            [
+              60,
+              195
+            ],
+            [
+              60,
+              270
+            ]
+          ],
+          "to": [
+            [
+              1000,
+              60
+            ],
+            [
+              1000,
+              280
+            ],
+            [
+              1000,
+              160
+            ],
+            [
+              1000,
+              380
+            ]
+          ]
+        }
+      },
+      "exampleFile": "examples/action-filter.html"
+    },
+    {
+      "id": "queue",
+      "title": "队列与补位",
+      "cat": "流程控制",
+      "use": "等待、占用处理槽和完成释放",
+      "observe": "前一批移出后，后一批才进入三个槽位",
+      "limit": "三个槽位仅为示意，实际容量以材料为准",
+      "bindings": [
+        "items",
+        "progress"
+      ],
+      "relation": "waiting",
+      "requiredFacts": [
+        "capacity"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "queue",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "items": [
+            "#queue-item0",
+            "#queue-item1",
+            "#queue-item2",
+            "#queue-item3",
+            "#queue-item4",
+            "#queue-item5"
+          ],
+          "progress": [
+            "#queue-item0-progress",
+            "#queue-item1-progress",
+            "#queue-item2-progress",
+            "#queue-item3-progress",
+            "#queue-item4-progress",
+            "#queue-item5-progress"
+          ]
+        },
+        "params": {
+          "from": [
+            [
+              60,
+              45
+            ],
+            [
+              60,
+              120
+            ],
+            [
+              60,
+              195
+            ],
+            [
+              60,
+              270
+            ],
+            [
+              60,
+              345
+            ],
+            [
+              60,
+              420
+            ]
+          ],
+          "to": [
+            [
+              1100,
+              45
+            ],
+            [
+              1100,
+              120
+            ],
+            [
+              1100,
+              195
+            ],
+            [
+              1100,
+              270
+            ],
+            [
+              1100,
+              345
+            ],
+            [
+              1100,
+              420
+            ]
+          ],
+          "capacity": 2,
+          "slots": [
+            [
+              580,
+              100
+            ],
+            [
+              580,
+              280
+            ]
+          ]
+        }
+      },
+      "exampleFile": "examples/action-queue.html"
+    },
+    {
+      "id": "parallel",
+      "title": "拆解并行与汇合",
+      "cat": "流程控制",
+      "use": "把一个问题拆为几项独立子任务，再合并结果",
+      "observe": "三条路径可同时推进，汇合等待各自完成",
+      "limit": "不是所有任务都能并行，动画速度不是性能数据",
+      "bindings": [
+        "items",
+        "progress",
+        "result"
+      ],
+      "relation": "independent-tasks",
+      "requiredFacts": [
+        "independent"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "parallel",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "items": [
+            "#parallel-item0",
+            "#parallel-item1",
+            "#parallel-item2",
+            "#parallel-item3"
+          ],
+          "progress": [
+            "#parallel-item0-progress",
+            "#parallel-item1-progress",
+            "#parallel-item2-progress",
+            "#parallel-item3-progress"
+          ],
+          "result": "#parallel-result"
+        },
+        "params": {
+          "from": [
+            [
+              60,
+              45
+            ],
+            [
+              60,
+              120
+            ],
+            [
+              60,
+              195
+            ],
+            [
+              60,
+              270
+            ]
+          ],
+          "to": [
+            [
+              1100,
+              45
+            ],
+            [
+              1100,
+              120
+            ],
+            [
+              1100,
+              195
+            ],
+            [
+              1100,
+              270
+            ]
+          ],
+          "independent": true,
+          "stages": [
+            [
+              560,
+              45
+            ],
+            [
+              560,
+              150
+            ],
+            [
+              560,
+              255
+            ],
+            [
+              560,
+              360
+            ]
+          ],
+          "work": [
+            0.14,
+            0.21,
+            0.28,
+            0.18
+          ]
+        }
+      },
+      "exampleFile": "examples/action-parallel.html"
+    },
+    {
+      "id": "branch",
+      "title": "条件分支",
+      "cat": "流程控制",
+      "use": "解释不同条件为什么进入不同路径",
+      "observe": "每次只点亮满足条件的一路，另一路保持暗色",
+      "limit": "两条分支存在，不代表一次执行全部分支",
+      "bindings": [
+        "token",
+        "branches"
+      ],
+      "relation": "conditional",
+      "requiredFacts": [
+        "condition"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "branch",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "token": "#branch-token",
+          "branches": [
+            "#branch-branch0",
+            "#branch-branch1"
+          ]
+        },
+        "params": {
+          "from": [
+            150,
+            160
+          ],
+          "junction": [
+            560,
+            160
+          ],
+          "destinations": [
+            [
+              980,
+              95
+            ],
+            [
+              980,
+              355
+            ]
+          ],
+          "selected": 1
+        }
+      },
+      "exampleFile": "examples/action-branch.html"
+    },
+    {
+      "id": "retry",
+      "title": "失败后重试",
+      "cat": "流程控制",
+      "use": "解释失败、回退、重试成功的过程",
+      "observe": "同一请求返回等待区，再次进入处理",
+      "limit": "重试次数与退避策略必须由实际机制决定",
+      "bindings": [
+        "token",
+        "failure",
+        "success"
+      ],
+      "relation": "recovery",
+      "requiredFacts": [
+        "failureCondition"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "retry",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "token": "#retry-token",
+          "failure": "#retry-failure",
+          "success": "#retry-success"
+        },
+        "params": {
+          "path": [
+            [
+              150,
+              160
+            ],
+            [
+              560,
+              160
+            ],
+            [
+              150,
+              340
+            ],
+            [
+              1020,
+              160
+            ]
+          ]
+        }
+      },
+      "exampleFile": "examples/action-retry.html"
+    },
+    {
+      "id": "patch",
+      "title": "原位局部更新",
+      "cat": "修订与状态",
+      "use": "新增证据只修订一个字段或段落",
+      "observe": "中间一行替换，上下两段不移动",
+      "limit": "更新与整篇重写不同，未触及内容应保留",
+      "bindings": [
+        "old",
+        "updated",
+        "highlight",
+        "unchanged"
+      ],
+      "relation": "targeted-change",
+      "requiredFacts": [
+        "unchangedObjects"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "patch",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "old": "#patch-old",
+          "updated": "#patch-updated",
+          "highlight": "#patch-highlight",
+          "unchanged": [
+            "#patch-fixed1",
+            "#patch-fixed2"
+          ]
+        },
+        "params": {}
+      },
+      "exampleFile": "examples/action-patch.html"
+    },
+    {
+      "id": "diff",
+      "title": "逐行差异对照",
+      "cat": "修订与状态",
+      "use": "对照修订前后，定位增删改",
+      "observe": "对应行用线连接，修改行单独标记",
+      "limit": "高亮只标发生变化的行，不暗示其余行也被重写",
+      "bindings": [
+        "changes",
+        "guides"
+      ],
+      "relation": "difference",
+      "requiredFacts": [
+        "sameBaseline"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "diff",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "changes": [
+            "#diff-diff0",
+            "#diff-diff1"
+          ],
+          "guides": "#diff-guides"
+        },
+        "params": {}
+      },
+      "exampleFile": "examples/action-diff.html"
+    },
+    {
+      "id": "version",
+      "title": "版本沿革",
+      "cat": "修订与状态",
+      "use": "解释内容演化与来源历史",
+      "observe": "新版本向前出现，旧版本仍保留",
+      "limit": "不能把历史保留误画成同时生效",
+      "bindings": [
+        "versions",
+        "current"
+      ],
+      "relation": "history",
+      "requiredFacts": [
+        "historyRef"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "version",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "versions": [
+            "#version-version0",
+            "#version-version1",
+            "#version-version2"
+          ],
+          "current": "#version-current"
+        },
+        "params": {}
+      },
+      "exampleFile": "examples/action-version.html"
+    },
+    {
+      "id": "undo",
+      "title": "状态回退",
+      "cat": "修订与状态",
+      "use": "解释撤销、回滚与恢复基线",
+      "observe": "状态从A到B，再沿记录恢复A",
+      "limit": "演示回退不等于自动恢复数据库或删除历史",
+      "bindings": [
+        "before",
+        "after",
+        "history"
+      ],
+      "relation": "reversal",
+      "requiredFacts": [
+        "reversible"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "undo",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "before": "#undo-before",
+          "after": "#undo-after",
+          "history": "#undo-history"
+        },
+        "params": {}
+      },
+      "exampleFile": "examples/action-undo.html"
+    },
+    {
+      "id": "compare",
+      "title": "同输入双路对照",
+      "cat": "对比与视角",
+      "use": "比较两种流程或输出形态",
+      "observe": "两个明确的输入副本分别走两条路径",
+      "limit": "必须同条件比较，动画用时不代表真实耗时",
+      "bindings": [
+        "items",
+        "results"
+      ],
+      "relation": "alternatives",
+      "requiredFacts": [
+        "sameInput",
+        "dimensions"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "compare",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "items": [
+            "#compare-item0",
+            "#compare-item1"
+          ],
+          "results": [
+            "#compare-result0",
+            "#compare-result1"
+          ]
+        },
+        "params": {
+          "from": [
+            [
+              60,
+              80
+            ],
+            [
+              60,
+              300
+            ]
+          ],
+          "to": [
+            [
+              1050,
+              80
+            ],
+            [
+              1050,
+              300
+            ]
+          ],
+          "stages": [
+            [
+              600,
+              80
+            ],
+            [
+              600,
+              300
+            ]
+          ],
+          "sameInput": true
+        }
+      },
+      "exampleFile": "examples/action-compare.html"
+    },
+    {
+      "id": "align",
+      "title": "字段对应与对齐",
+      "cat": "对比与视角",
+      "use": "解释两个表、两种格式怎样映射",
+      "observe": "字段顺序不同但名称对应，随后整理对齐",
+      "limit": "位置靠近不代表语义相同，需要明确映射",
+      "bindings": [
+        "items",
+        "guides"
+      ],
+      "relation": "correspondence",
+      "requiredFacts": [
+        "mappingRef"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "align",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "items": [
+            "#align-item0",
+            "#align-item1",
+            "#align-item2",
+            "#align-item3"
+          ],
+          "guides": "#align-guides"
+        },
+        "params": {
+          "from": [
+            [
+              60,
+              45
+            ],
+            [
+              60,
+              120
+            ],
+            [
+              60,
+              195
+            ],
+            [
+              60,
+              270
+            ]
+          ],
+          "to": [
+            [
+              1000,
+              45
+            ],
+            [
+              1000,
+              120
+            ],
+            [
+              1000,
+              195
+            ],
+            [
+              1000,
+              270
+            ]
+          ]
+        }
+      },
+      "exampleFile": "examples/action-align.html"
+    },
+    {
+      "id": "wipe",
+      "title": "同位置前后揭示",
+      "cat": "对比与视角",
+      "use": "设计对比、过滤前后、前后状态",
+      "observe": "分界线揭示同一位置上的另一个状态",
+      "limit": "只适合能在同一坐标比较的内容，不代替解释因果",
+      "bindings": [
+        "clip",
+        "divider"
+      ],
+      "relation": "same-position",
+      "requiredFacts": [
+        "sameCoordinates"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "wipe",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "clip": "#wipe-clip",
+          "divider": "#wipe-divider"
+        },
+        "params": {
+          "width": 1250
+        }
+      },
+      "exampleFile": "examples/action-wipe.html"
+    },
+    {
+      "id": "zoom",
+      "title": "整体到局部放大",
+      "cat": "对比与视角",
+      "use": "从系统概览切入某个模块的内部",
+      "observe": "左侧全貌保留，焦点连接到右侧细节",
+      "limit": "是图解放大，不是复杂三维摄影或真实显微影像",
+      "bindings": [
+        "detail",
+        "overview",
+        "guides"
+      ],
+      "relation": "detail-scale",
+      "requiredFacts": [
+        "overviewObject"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "zoom",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "overview": "#zoom-overview",
+          "detail": "#zoom-detail",
+          "guides": "#zoom-guides"
+        },
+        "params": {}
+      },
+      "exampleFile": "examples/action-zoom.html"
+    },
+    {
+      "id": "bars",
+      "title": "数值形成柱图",
+      "cat": "数据表达",
+      "use": "比较几组明确数值",
+      "observe": "柱高和数值对应，逐步建立同一尺度",
+      "limit": "示意数据 3、7、5、9，不是外部统计结论",
+      "bindings": [
+        "bars"
+      ],
+      "relation": "magnitude",
+      "requiredFacts": [
+        "values",
+        "unit"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "bars",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "bars": [
+            "#bars-value0",
+            "#bars-value1",
+            "#bars-value2",
+            "#bars-value3"
+          ]
+        },
+        "params": {
+          "values": [
+            3,
+            7,
+            5,
+            9
+          ],
+          "baseline": 430,
+          "unit": 35
+        }
+      },
+      "exampleFile": "examples/action-bars.html"
+    },
+    {
+      "id": "sort",
+      "title": "按数值重新排序",
+      "cat": "数据表达",
+      "use": "解释排序、排名和重排前后的关系",
+      "observe": "同一柱形只换位置，高度与数值不变",
+      "limit": "排序不代表原始数据发生变化",
+      "bindings": [
+        "items"
+      ],
+      "relation": "ranking",
+      "requiredFacts": [
+        "values"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "sort",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "items": [
+            "#sort-item0",
+            "#sort-item1",
+            "#sort-item2",
+            "#sort-item3"
+          ]
+        },
+        "params": {
+          "values": [
+            3,
+            7,
+            5,
+            9
+          ],
+          "from": [
+            [
+              80,
+              0
+            ],
+            [
+              410,
+              0
+            ],
+            [
+              740,
+              0
+            ],
+            [
+              1070,
+              0
+            ]
+          ],
+          "to": [
+            [
+              80,
+              0
+            ],
+            [
+              410,
+              0
+            ],
+            [
+              740,
+              0
+            ],
+            [
+              1070,
+              0
+            ]
+          ]
+        }
+      },
+      "exampleFile": "examples/action-sort.html"
+    },
+    {
+      "id": "line",
+      "title": "曲线逐点构建",
+      "cat": "数据表达",
+      "use": "解释随时间积累的测量或事件序列",
+      "observe": "曲线按已有数据点形成，不凭空漂移",
+      "limit": "线条插值不代表未采样时刻有真实观测",
+      "bindings": [
+        "path",
+        "marker"
+      ],
+      "relation": "ordered-series",
+      "requiredFacts": [
+        "values",
+        "orderedAxis"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "line",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "path": "#line-path",
+          "marker": "#line-token"
+        },
+        "params": {
+          "points": [
+            [
+              150,
+              160
+            ],
+            [
+              560,
+              160
+            ],
+            [
+              1020,
+              160
+            ],
+            [
+              1360,
+              320
+            ]
+          ],
+          "length": 100
+        }
+      },
+      "exampleFile": "examples/action-line.html"
+    },
+    {
+      "id": "distribution",
+      "title": "个体汇成分布",
+      "cat": "数据表达",
+      "use": "把离散样本整理成频次分布",
+      "observe": "同一批36个点从原排列进入11个桶",
+      "limit": "示例来自两骰36种组合，桶的数量对应和数2到12",
+      "bindings": [
+        "items"
+      ],
+      "relation": "frequency",
+      "requiredFacts": [
+        "samplesRef",
+        "bucketRule"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "distribution",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "items": [
+            "#distribution-sample0",
+            "#distribution-sample1",
+            "#distribution-sample2",
+            "#distribution-sample3",
+            "#distribution-sample4",
+            "#distribution-sample5",
+            "#distribution-sample6",
+            "#distribution-sample7",
+            "#distribution-sample8",
+            "#distribution-sample9",
+            "#distribution-sample10",
+            "#distribution-sample11",
+            "#distribution-sample12",
+            "#distribution-sample13",
+            "#distribution-sample14",
+            "#distribution-sample15",
+            "#distribution-sample16",
+            "#distribution-sample17",
+            "#distribution-sample18",
+            "#distribution-sample19",
+            "#distribution-sample20",
+            "#distribution-sample21",
+            "#distribution-sample22",
+            "#distribution-sample23",
+            "#distribution-sample24",
+            "#distribution-sample25",
+            "#distribution-sample26",
+            "#distribution-sample27",
+            "#distribution-sample28",
+            "#distribution-sample29",
+            "#distribution-sample30",
+            "#distribution-sample31",
+            "#distribution-sample32",
+            "#distribution-sample33",
+            "#distribution-sample34",
+            "#distribution-sample35"
+          ]
+        },
+        "params": {
+          "from": [
+            [
+              200,
+              100
+            ],
+            [
+              235,
+              100
+            ],
+            [
+              270,
+              100
+            ],
+            [
+              305,
+              100
+            ],
+            [
+              340,
+              100
+            ],
+            [
+              375,
+              100
+            ],
+            [
+              200,
+              150
+            ],
+            [
+              235,
+              150
+            ],
+            [
+              270,
+              150
+            ],
+            [
+              305,
+              150
+            ],
+            [
+              340,
+              150
+            ],
+            [
+              375,
+              150
+            ],
+            [
+              200,
+              200
+            ],
+            [
+              235,
+              200
+            ],
+            [
+              270,
+              200
+            ],
+            [
+              305,
+              200
+            ],
+            [
+              340,
+              200
+            ],
+            [
+              375,
+              200
+            ],
+            [
+              200,
+              250
+            ],
+            [
+              235,
+              250
+            ],
+            [
+              270,
+              250
+            ],
+            [
+              305,
+              250
+            ],
+            [
+              340,
+              250
+            ],
+            [
+              375,
+              250
+            ],
+            [
+              200,
+              300
+            ],
+            [
+              235,
+              300
+            ],
+            [
+              270,
+              300
+            ],
+            [
+              305,
+              300
+            ],
+            [
+              340,
+              300
+            ],
+            [
+              375,
+              300
+            ],
+            [
+              200,
+              350
+            ],
+            [
+              235,
+              350
+            ],
+            [
+              270,
+              350
+            ],
+            [
+              305,
+              350
+            ],
+            [
+              340,
+              350
+            ],
+            [
+              375,
+              350
+            ]
+          ],
+          "bucketIds": [
+            0,
+            1,
+            1,
+            2,
+            2,
+            2,
+            3,
+            3,
+            3,
+            3,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            6,
+            6,
+            6,
+            6,
+            6,
+            7,
+            7,
+            7,
+            7,
+            8,
+            8,
+            8,
+            9,
+            9,
+            10
+          ],
+          "bucketCenters": [
+            [
+              160,
+              450
+            ],
+            [
+              270,
+              450
+            ],
+            [
+              380,
+              450
+            ],
+            [
+              490,
+              450
+            ],
+            [
+              600,
+              450
+            ],
+            [
+              710,
+              450
+            ],
+            [
+              820,
+              450
+            ],
+            [
+              930,
+              450
+            ],
+            [
+              1040,
+              450
+            ],
+            [
+              1150,
+              450
+            ],
+            [
+              1260,
+              450
+            ]
+          ],
+          "gap": 35
+        }
+      },
+      "exampleFile": "examples/action-distribution.html"
+    },
+    {
+      "id": "trace",
+      "title": "沿路径追踪来源",
+      "cat": "连续性与结构",
+      "use": "解释一条数据经过哪些环节",
+      "observe": "同一信号留下可追踪的路径和记录",
+      "limit": "路线必须对应真实步骤，不能用光点掩盖内容",
+      "bindings": [
+        "token",
+        "nodes"
+      ],
+      "relation": "provenance",
+      "requiredFacts": [
+        "sourcePath"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "trace",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "token": "#trace-token",
+          "nodes": [
+            "#trace-step0",
+            "#trace-step1",
+            "#trace-step2",
+            "#trace-step3"
+          ]
+        },
+        "params": {
+          "path": [
+            [
+              150,
+              160
+            ],
+            [
+              560,
+              160
+            ],
+            [
+              1020,
+              160
+            ],
+            [
+              1360,
+              320
+            ]
+          ]
+        }
+      },
+      "exampleFile": "examples/action-trace.html"
+    },
+    {
+      "id": "expand",
+      "title": "局部展开层级",
+      "cat": "连续性与结构",
+      "use": "解释父模块与内部子结构",
+      "observe": "原模块仍在，内部字段在旁边展开",
+      "limit": "展开的是结构关系，不暗示额外后台动作已经执行",
+      "bindings": [
+        "parent",
+        "details",
+        "guides"
+      ],
+      "relation": "hierarchy",
+      "requiredFacts": [
+        "parentObject"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "expand",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "parent": "#expand-parent",
+          "details": [
+            "#expand-detail0",
+            "#expand-detail1",
+            "#expand-detail2"
+          ],
+          "guides": "#expand-guides"
+        },
+        "params": {}
+      },
+      "exampleFile": "examples/action-expand.html"
+    },
+    {
+      "id": "morph",
+      "title": "同一批点连续形变",
+      "cat": "连续性与结构",
+      "use": "解释集合保持身份、布局发生变化",
+      "observe": "40个点从矩形边界移动成圆，数量不变",
+      "limit": "这是二维形变示意，不是物理过程或真实三维材质",
+      "bindings": [
+        "items"
+      ],
+      "relation": "layout-change",
+      "requiredFacts": [
+        "identityPreserved"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "morph",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "items": [
+            "#morph-point0",
+            "#morph-point1",
+            "#morph-point2",
+            "#morph-point3",
+            "#morph-point4",
+            "#morph-point5",
+            "#morph-point6",
+            "#morph-point7",
+            "#morph-point8",
+            "#morph-point9",
+            "#morph-point10",
+            "#morph-point11",
+            "#morph-point12",
+            "#morph-point13",
+            "#morph-point14",
+            "#morph-point15",
+            "#morph-point16",
+            "#morph-point17",
+            "#morph-point18",
+            "#morph-point19",
+            "#morph-point20",
+            "#morph-point21",
+            "#morph-point22",
+            "#morph-point23",
+            "#morph-point24",
+            "#morph-point25",
+            "#morph-point26",
+            "#morph-point27",
+            "#morph-point28",
+            "#morph-point29",
+            "#morph-point30",
+            "#morph-point31",
+            "#morph-point32",
+            "#morph-point33",
+            "#morph-point34",
+            "#morph-point35",
+            "#morph-point36",
+            "#morph-point37",
+            "#morph-point38",
+            "#morph-point39"
+          ]
+        },
+        "params": {
+          "from": [
+            [
+              940.0,
+              250.0
+            ],
+            [
+              940.0,
+              278.5091992584165
+            ],
+            [
+              940.0,
+              308.48554532192315
+            ],
+            [
+              940.0,
+              341.71458090899716
+            ],
+            [
+              940.0,
+              380.777655040965
+            ],
+            [
+              940.0,
+              430.0
+            ],
+            [
+              890.777655040965,
+              430.0
+            ],
+            [
+              851.7145809089972,
+              430.0
+            ],
+            [
+              818.4855453219232,
+              430.0
+            ],
+            [
+              788.5091992584165,
+              430.0
+            ],
+            [
+              760.0,
+              430.0
+            ],
+            [
+              731.4908007415835,
+              430.0
+            ],
+            [
+              701.5144546780768,
+              430.0
+            ],
+            [
+              668.2854190910028,
+              430.0
+            ],
+            [
+              629.2223449590351,
+              430.0
+            ],
+            [
+              580.0,
+              430.0
+            ],
+            [
+              580.0,
+              380.777655040965
+            ],
+            [
+              580.0,
+              341.7145809089972
+            ],
+            [
+              580.0,
+              308.48554532192315
+            ],
+            [
+              580.0,
+              278.5091992584166
+            ],
+            [
+              580.0,
+              250.00000000000003
+            ],
+            [
+              580.0,
+              221.49080074158348
+            ],
+            [
+              580.0,
+              191.5144546780768
+            ],
+            [
+              580.0,
+              158.28541909100295
+            ],
+            [
+              580.0,
+              119.22234495903507
+            ],
+            [
+              580.0,
+              70.00000000000006
+            ],
+            [
+              629.222344959035,
+              70.0
+            ],
+            [
+              668.2854190910027,
+              70.0
+            ],
+            [
+              701.5144546780768,
+              70.0
+            ],
+            [
+              731.4908007415835,
+              70.0
+            ],
+            [
+              760.0,
+              70.0
+            ],
+            [
+              788.5091992584165,
+              70.0
+            ],
+            [
+              818.4855453219232,
+              70.0
+            ],
+            [
+              851.7145809089972,
+              70.0
+            ],
+            [
+              890.7776550409649,
+              70.0
+            ],
+            [
+              939.9999999999999,
+              70.0
+            ],
+            [
+              940.0,
+              119.22234495903496
+            ],
+            [
+              940.0,
+              158.28541909100278
+            ],
+            [
+              940.0,
+              191.51445467807682
+            ],
+            [
+              940.0,
+              221.49080074158343
+            ]
+          ],
+          "to": [
+            [
+              940.0,
+              250.0
+            ],
+            [
+              937.7839013071248,
+              278.15820370724157
+            ],
+            [
+              931.1901729331277,
+              305.62305898749054
+            ],
+            [
+              920.3811743539062,
+              331.7182899531184
+            ],
+            [
+              905.6230589874906,
+              355.80134541264516
+            ],
+            [
+              887.2792206135786,
+              377.27922061357856
+            ],
+            [
+              865.8013454126451,
+              395.62305898749054
+            ],
+            [
+              841.7182899531184,
+              410.3811743539062
+            ],
+            [
+              815.6230589874906,
+              421.19017293312766
+            ],
+            [
+              788.1582037072416,
+              427.7839013071248
+            ],
+            [
+              760.0,
+              430.0
+            ],
+            [
+              731.8417962927584,
+              427.7839013071248
+            ],
+            [
+              704.3769410125095,
+              421.19017293312766
+            ],
+            [
+              678.2817100468816,
+              410.3811743539062
+            ],
+            [
+              654.1986545873549,
+              395.62305898749054
+            ],
+            [
+              632.7207793864214,
+              377.27922061357856
+            ],
+            [
+              614.3769410125095,
+              355.8013454126452
+            ],
+            [
+              599.6188256460938,
+              331.7182899531184
+            ],
+            [
+              588.8098270668723,
+              305.62305898749054
+            ],
+            [
+              582.2160986928752,
+              278.15820370724157
+            ],
+            [
+              580.0,
+              250.00000000000003
+            ],
+            [
+              582.2160986928752,
+              221.84179629275846
+            ],
+            [
+              588.8098270668723,
+              194.3769410125094
+            ],
+            [
+              599.6188256460937,
+              168.28171004688167
+            ],
+            [
+              614.3769410125094,
+              144.19865458735484
+            ],
+            [
+              632.7207793864214,
+              122.72077938642146
+            ],
+            [
+              654.1986545873548,
+              104.37694101250949
+            ],
+            [
+              678.2817100468816,
+              89.6188256460938
+            ],
+            [
+              704.3769410125094,
+              78.80982706687237
+            ],
+            [
+              731.8417962927584,
+              72.21609869287522
+            ],
+            [
+              760.0,
+              70.0
+            ],
+            [
+              788.1582037072416,
+              72.21609869287519
+            ],
+            [
+              815.6230589874905,
+              78.80982706687234
+            ],
+            [
+              841.7182899531184,
+              89.61882564609377
+            ],
+            [
+              865.8013454126451,
+              104.37694101250943
+            ],
+            [
+              887.2792206135786,
+              122.72077938642141
+            ],
+            [
+              905.6230589874905,
+              144.19865458735478
+            ],
+            [
+              920.3811743539062,
+              168.28171004688153
+            ],
+            [
+              931.1901729331277,
+              194.3769410125094
+            ],
+            [
+              937.7839013071248,
+              221.8417962927584
+            ]
+          ]
+        }
+      },
+      "exampleFile": "examples/action-morph.html"
+    },
+    {
+      "id": "handoff",
+      "title": "结果接成下一镜输入",
+      "cat": "连续性与结构",
+      "use": "让观众顺着同一个对象理解下一步",
+      "observe": "记录A留在画面中，角色从上一阶段结果变为下一阶段输入",
+      "limit": "承接必须有内容关系，不为连贯强行连接无关镜头",
+      "bindings": [
+        "carrier"
+      ],
+      "relation": "stage-transition",
+      "requiredFacts": [
+        "resultUsedNext"
+      ],
+      "videoAdapter": "MotionActions.add",
+      "status": "callable-adapter-requires-shot-review",
+      "exampleConfig": {
+        "type": "handoff",
+        "start": 0,
+        "duration": 8,
+        "bindings": {
+          "carrier": "#handoff-token"
+        },
+        "params": {
+          "from": [
+            150,
+            160
+          ],
+          "to": [
+            1020,
+            160
+          ]
+        }
+      },
+      "exampleFile": "examples/action-handoff.html"
+    }
+  ]
+}

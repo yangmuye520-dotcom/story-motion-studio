@@ -9,12 +9,12 @@
 
 ## 根据知识关系选动作
 
-先读 [动作模块](mechanism-modules.md)，为每镜填写 mechanism.family、selectionReason、observableChange、readingHold
+先读 [动作模块](mechanism-modules.md)，为每镜填写mechanism及contentFacts，并按[action-routing](action-routing.md)登记对象和跨镜承接
 只维护 explanation.json 一份分镜；composition 实现这份选择，不维护另一份内容计划
 模块可重复用于同类关系，不强迫每片用齐四个，不按关键词机械挑选
 连续重复时检查内容是否真的具有同一关系，不能用同一个“出现→连线→出现”替代不同机制
 
-共享入口 assets/mechanism-motion.js 的四项函数只接受现有暂停时间线，不创建第二条时间线，不创建动态DOM
+新工程共享入口 assets/motion-actions.js 的24项适配器，通过MotionActions.add调用；旧版 assets/mechanism-motion.js 的四项函数保留。它们只接受现有暂停时间线，不创建第二条时间线，不创建动态DOM
 所有元素在HTML中声明稳定ID，按时间改变同一对象；新数据副本、归并结果与原始证据须明确区分
 入场、描线和高亮只辅助读图，主体变化必须能说明拆分、等待、更新或比较的实际机制
 

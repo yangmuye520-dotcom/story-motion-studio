@@ -70,3 +70,8 @@ qa/hf-review.json 要有 videoSha256、candidateReportSha256、independent=true�
 有原生警告时按 section:code 在 warningDecisions 逐项记录保留理由，不能整体忽略。任何阻断项、过期素材/代码/分镜/贡献、缺失审查、未做完整观看或音轨未听都会阻止正式发布；仍可交付明确标记的候选，不能把候选冒称终版
 
 自动程序只能核对证据一致性和技术约束，不能证明审美与观众理解。分镜/审查JSON不能凭声明通过而冒充真实执行
+
+## v7动作与对象契约
+
+新初始化计划带semantic-motion/v1，动作按资料关系选择，24项接口及跨镜对象字段见[动作路由](action-routing.md)
+explanation_check会接入semantic_motion检查，board与trace都从同一分镜生成；旧计划不自动改成新契约

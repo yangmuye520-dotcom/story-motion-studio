@@ -36,13 +36,15 @@ def check(root):
   if not selectors:errors.append(prefix+'no implementation anchor')
   for selector in selectors:
    if not isinstance(selector,str) or not selector.startswith('#') or selector[1:] not in ids:errors.append(prefix+'missing HTML id '+str(selector))
-  if previous:
+  if previous and not (plan.get('motionContract')=='semantic-motion/v1' and (shot.get('handoff') or {}).get('mode')=='chapter-break'):
    hand=shot.get('handoff') or {}
    if hand.get('fromObject')!=previous.get('outObject') or hand.get('toObject')!=shot.get('object') or not hand.get('relation'):errors.append(prefix+'missing causal/object handoff')
   previous=shot
  try:
   if abs(last-float(plan['duration']))>.02:errors.append('Duration does not match shots')
  except (KeyError,ValueError,TypeError):errors.append('Invalid total duration')
- return {'structurePassed':not errors,'errors':errors,'comprehension':'unverified','limits':'Checks declarations, timing and HTML anchors; actual motion, facts and comprehension require separate review'}
+ from semantic_motion import check as motion_check
+ motion=motion_check(root,plan);errors.extend(motion['errors'])
+ return {'motionContract':motion.get('legacy') is False,'structurePassed':not errors,'errors':errors,'comprehension':'unverified','limits':'Checks declarations, timing and HTML anchors; actual motion, facts and comprehension require separate review'}
 if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('project',type=Path);a=p.parse_args();r=check(a.project);print(json.dumps(r,ensure_ascii=False,indent=2));sys.exit(0 if r['structurePassed'] else 2)

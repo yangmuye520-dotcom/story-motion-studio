@@ -60,6 +60,13 @@ def check(root):
    fp=template/rel
    if not fp.is_file() or hashlib.sha256(fp.read_bytes()).hexdigest()!=expected:errors.append('default template hash mismatch: '+rel)
  need(root/'scripts/hf_template.py','default template installer missing')
+ for name in ['scripts/semantic_motion.py','scripts/motion.py','assets/motion-actions-v1/actions.js','assets/motion-actions-v1/catalog.json','references/action-routing.md']:
+  need(root/name,'v7 motion entry missing')
+ catalog=root/'assets/motion-actions-v1/catalog.json'
+ if catalog.is_file():
+  items=json.loads(catalog.read_text(encoding='utf-8'))['items']
+  if len(items)!=24 or len({x['id'] for x in items})!=24:errors.append('Expected 24 unique motion adapters')
+  for row in items:need(catalog.parent/row['exampleFile'],'motion example missing')
  labels=root/'assets/studio-zh/labels.txt'
  if labels.is_file():counts['chineseLabels']=sum('|' in line for line in labels.read_text(encoding='utf-8').splitlines())
  return {'passed':not errors,'counts':counts,'errors':errors,'limits':'Navigation, resource presence and style hashes only; no video rendering, full watching, listening or upstream execution certification'}

@@ -6,7 +6,7 @@
 
 旧 Canvas 工程继续使用原 studio.py 路线，不自动转换、不混用时间线。新工程通过 scripts/hyperframes.py 创建与操作。每个组合只有一个暂停 GSAP 时间线，所有状态从时间决定；遵守工程 AGENTS.md 和官方格式
 
-init 同时装配默认暗色二维模板、字体和四类动作源码，见[模板与动作](mechanism-modules.md)，旧项目不自动改动
+init 同时装配默认暗色二维模板、字体、24项统一动作接口及旧版四类源码，见[模板与动作](mechanism-modules.md)，旧项目不自动改动
 
 ## 一次配置
 
@@ -46,3 +46,5 @@ catalog 子命令以固定版本 help 为准，检索无结果时可按内容自
 assets/studio-zh/ 携带410项界面词条、动态诊断翻译和独立补丁。hyperframes.py preview 自动调用 studio_localize.py，localize 命令可单独应用。备份在运行时 node_modules 下的 .story-motion-ui-backup/0.8.207，升级版本先检查兼容性；不翻译终端、代码、用户正文和未覆盖的第三方错误
 
 运行时与四个官方核心技能仍按前文安装，技能只携带轻量补丁与样片，不能把目录复制误称重依赖已安装。新电脑配置完成后汉化不再依赖本机 visualizations 路径
+
+新计划的semantic-motion/v1选用、对象登记与转场规则见[动作路由](action-routing.md)，初始化将统一接口与目录复制到工程assets，旧项目不静默迁移
