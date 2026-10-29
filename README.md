@@ -29,14 +29,14 @@
 |---|---|---|
 | story-motion-studio | 统一分镜、风格、协作和验收 | 下方安装命令 |
 | 七个来源：xilo-opus-video、lemo-opuscar、mg-styles-15、dashi-animationstyle、huashu-art-motion、wtt-code-animation-studio、video-shotcraft | 共同完善同一条视频；mg包含实际动效源码，lemo需实际资料库 | 安装器按锁定提交下载 |
-| hyperframes、hyperframes-cli、hyperframes-registry、media-use | HyperFrames制作规范、命令、组件和素材规则 | 第二步让Codex补齐 |
+| hyperframes、hyperframes-cli、hyperframes-registry、media-use | HyperFrames制作规范、命令、组件和素材规则 | 统一安装器下载固定版本 |
 | Git、Python 3.10+、浏览器、基础Python环境与FFmpeg | 下载、绘图和编码 | 第一步安装器准备或定位 |
-| Node.js、HyperFrames 0.8.207、Chrome、FFprobe | 新后端运行、检查与导出 | 第二步检查补齐 |
+| Node.js、HyperFrames 0.8.207、Chrome、FFprobe | 新后端运行、检查与导出 | 统一安装器检查补齐 |
 
 七个来源是指导资料与代码，不是七个视频模型，不各做一段再拼接
 默认本地免费工具；AI账户和外部素材可能另有费用，涉及收费先说明
 
-### 第一步：一键安装总技能＋七个来源
+### 新电脑：一键安装完整本地环境
 
 Windows PowerShell执行；先查看[安装脚本](install.ps1)，需要可访问GitHub的网络
 
@@ -51,21 +51,32 @@ powershell -ExecutionPolicy Bypass -File $setup -InstallSystemTools
 已有目录或配置时停止防覆盖，**不要当作更新命令重复运行**
 只检查安装计划：`python install.py --check`，不联网、不写文件
 
-### 第二步：补齐HyperFrames和中文工作台
+### 已有安装：补齐HyperFrames，不覆盖技能
 
-**当前一键安装器尚未包含HyperFrames全部依赖**，安装后新开Codex对话发送：
+在本技能目录执行，缺少Node.js时允许通过winget安装：
 
-```text
-检查story-motion-studio环境，读取references/hyperframes.md
-补齐Node.js、Chrome、FFmpeg/FFprobe和hyperframes@0.8.207
-安装hyperframes、hyperframes-cli、hyperframes-registry、media-use四个官方技能
-运行时放技能目录外，合并本机配置，不覆盖已有字段或隐式升级
-应用包内中文补丁，通过中文入口启动，实际检查中文菜单并导出短片
-只使用免费本地功能，报告仍缺少的项目
+```powershell
+powershell -ExecutionPolicy Bypass -File .\install.ps1 -InstallSystemTools -CompleteExisting
 ```
 
-完成标准：来源能读取、中文预览能打开、MP4实际导出并可播放，不以文件复制或doctor通过代替验证
-[安装路径和配置字段](references/hyperframes.md) · [迁移说明](docs/setup.md)
+此模式读取已有配置，保留七个来源和已有官方技能，不自动升级或覆盖技能正文
+已有官方技能与锁定版本不同时会保留并在安装结果中注明，不把它冒充锁定版本
+已有HyperFrames运行时版本不是0.8.207时会停止，需明确处理版本选择
+
+安装器会准备Node.js 22+、固定HyperFrames、四个官方技能、FFprobe，应用中文补丁，实际导出并解码1秒测试片，再执行中文UI脚本验证
+新电脑的Git/Python/Node缺失安装依赖winget；已有过旧Node版本需明确升级，不自动替换
+网络、磁盘或版本冲突导致失败时停止，不能把下载完成当作完整安装成功
+不安装付费API、语音模型或云渲染服务
+
+默认运行数据位于`~/.codex/story-motion-studio-runtime`，HyperFrames位于其`hyperframes`子目录
+本机配置保存在`~/.codex/story-motion-studio.local.json`，补齐前自动备份，保留自定义字段
+已有运行时路径会复用，因此不要求老电脑和新电脑目录完全相同
+安装回执记录实际路径与测试结果，测试片不是正式作品
+
+只预览补齐计划：`python install.py --check --complete-existing`，不联网、不写文件
+高级路径选项：`python install.py --help`
+
+[运行时配置说明](references/hyperframes.md) · [迁移说明](docs/setup.md)
 
 ## 中文工作台怎么打开
 

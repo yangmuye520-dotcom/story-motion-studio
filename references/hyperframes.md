@@ -8,7 +8,14 @@
 
 init 同时装配默认暗色二维模板、字体、24项统一动作接口及旧版四类源码，见[模板与动作](mechanism-modules.md)，旧项目不自动改动
 
-## 一次配置
+## 统一安装入口
+
+新电脑执行README的一键安装命令；已有技能和本机配置时执行install.ps1 -InstallSystemTools -CompleteExisting
+安装器固定运行时和官方技能来源，准备FFprobe，应用汉化并执行1秒导出解码与中文UI脚本验证
+不覆盖已有技能，保留其他本机字段；新电脑运行时在~/.codex/story-motion-studio-runtime/hyperframes，已有配置可保留旧路径
+下列手动配置用于排障或自定义位置，不再要求普通用户单独完成第二轮安装
+
+## 手动配置
 
 需要 Node.js、Chrome、FFmpeg、FFprobe。只安装本地免费核心，不安装付费云端、语音模型或头像服务。运行时放技能目录外，固定版本并保留 package-lock.json
 

@@ -7,7 +7,7 @@
 ## 当前默认路线
 
 新项目使用HyperFrames和暗色精细二维模板，仍需七个上游来源
-旧安装器负责七项与基础Python/浏览器工具；Node.js、固定HyperFrames运行时、四个官方核心技能另按[HyperFrames接入](../references/hyperframes.md)配置
+统一安装器负责七项、基础Python/浏览器工具、Node.js检查、固定HyperFrames、四个官方核心技能和中文补丁；已有安装用-CompleteExisting补齐，详见README
 中文补丁随本技能携带，默认模板与四类动作无需另找外部视频，但运行工具本身仍须安装
 单独播放MP4不需要以上制作环境
 

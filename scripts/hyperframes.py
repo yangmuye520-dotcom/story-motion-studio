@@ -17,7 +17,7 @@ def main():
   p.error('Expected pinned HyperFrames '+VERSION+'; review upgrade before changing the pin')
  node=hf.get('node') or shutil.which('node')
  if not node:p.error('Node.js missing; read setup guide')
- env=os.environ.copy();ff=Path(studio.ffmpeg());probe=ff.with_name('ffprobe.exe' if os.name=='nt' else 'ffprobe')
+ env=os.environ.copy();ff=Path(studio.ffmpeg());probe=Path(cfg.get('ffprobe') or ff.with_name('ffprobe.exe' if os.name=='nt' else 'ffprobe'))
  env.update(HYPERFRAMES_FFMPEG_PATH=str(ff),HYPERFRAMES_NO_TELEMETRY='1',HYPERFRAMES_NO_UPDATE_CHECK='1',HYPERFRAMES_SKIP_SKILLS='1')
  env['PATH']=str(ff.parent)+os.pathsep+env.get('PATH','')
  if probe.is_file():env['HYPERFRAMES_FFPROBE_PATH']=str(probe)

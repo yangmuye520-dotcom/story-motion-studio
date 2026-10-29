@@ -30,8 +30,9 @@ def plan(args,lock):
  skills=(args.skills_dir or codex/'skills').resolve();data=(args.data_dir or codex/'story-motion-studio-runtime').resolve()
  config=(args.config or Path.home()/'.codex/story-motion-studio.local.json').resolve()
  targets=[skills/'story-motion-studio']+[skills/'video'/x['name'] for x in lock['items']]
- conflicts=[str(p) for p in targets+[config] if p.exists()]
- if conflicts:raise RuntimeError('Existing files will NOT be overwritten. Back up/move them or select a fresh destination:\n'+'\n'.join(conflicts))
+ official=[skills/x['name'] for x in json.loads((ROOT/'hyperframes.lock.json').read_text(encoding='utf-8'))['items']]
+ conflicts=[str(p) for p in targets+official+[config] if p.exists()]
+ if conflicts and not getattr(args,'complete_existing',False):raise RuntimeError('Existing files will NOT be overwritten. Back up/move them or select a fresh destination:\n'+'\n'.join(conflicts))
  if data==skills or data.is_relative_to(skills/'story-motion-studio'):raise ValueError('Runtime data must stay outside the installed skill')
  return skills,data,config,targets
 
@@ -47,6 +48,7 @@ def http_bytes(url):
 def checkout(row,cache,git):
  # The Git tree binds raw file paths and blob IDs to a fixed commit, no default-branch drift
  d=cache/(row['repo'].replace('/','--')+'-'+row['commit'][:12]+'-http')
+ if os.name=='nt' and not str(d).startswith('\\\\?\\'):d=Path('\\\\?\\'+str(d.resolve()))
  marker=d/'.story-motion-source.json'
  tree=json.loads(http_bytes('https://api.github.com/repos/'+row['repo']+'/git/trees/'+row['commit']+'?recursive=1'))
  if tree.get('truncated'):raise RuntimeError('Upstream tree truncated, refusing incomplete install')
@@ -105,8 +107,11 @@ def runtime(data):
  site=subprocess.check_output([str(py),'-c','import site,json; print(json.dumps(site.getsitepackages()))'],text=True)
  return py,chrome,ffmpeg,json.loads(site)
 def safe_copy(src,dst):
+ if os.name=='nt':
+  src=Path('\\\\?\\'+str(Path(src).resolve())) if not str(src).startswith('\\\\?\\') else src
+  dst=Path('\\\\?\\'+str(Path(dst).resolve())) if not str(dst).startswith('\\\\?\\') else dst
  def ignore(folder,names):
-  return [n for n in names if n in {'.git','__pycache__','.venv','tests','.story-motion-source.json'} or n.endswith(('.pyc','.local.json')) or (Path(folder)/n).is_symlink()]
+  return [n for n in names if n in {'.git','__pycache__','.venv','tests','.story-motion-source.json'} or n.endswith(('.pyc','.local.json','.log')) or (Path(folder)/n).is_symlink()]
  shutil.copytree(src,dst,ignore=ignore)
 
 def install(args):
@@ -114,7 +119,18 @@ def install(args):
  lock=load_lock();skills,data,config,targets=plan(args,lock)
  print('Target skills: '+str(skills));print('Runtime/config: '+str(data)+' / '+str(config))
  if args.check:
+  import install_hyperframes as hf
+  print(json.dumps(hf.setup(skills,data,config,check=True),indent=2))
   print('PLAN OK, no installation or network requests performed');return
+ if args.complete_existing:
+  if args.skip_runtime:raise RuntimeError('--complete-existing cannot use --skip-runtime')
+  if not config.is_file() or not (skills/'story-motion-studio/SKILL.md').is_file():raise RuntimeError('Completion requires existing skill and configuration')
+  env=os.environ.copy();env['STORY_MOTION_CONFIG']=str(config)
+  run([sys.executable,skills/'story-motion-studio/scripts/integrations.py','doctor'],env=env)
+  import install_hyperframes as hf
+  result=hf.setup(skills,data,config,reuse_existing=True);result['smoke']=hf.smoke(skills,data,config)
+  data.mkdir(parents=True,exist_ok=True);(data/'hyperframes-install-receipt.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+  print('COMPLETE: HyperFrames and Chinese UI smoke verified');return
  git=shutil.which('git')
  if not git:raise RuntimeError('Git missing; run install.ps1 -InstallSystemTools on Windows with winget')
  cache=data/'upstreams';sources={};lemo=None
@@ -142,13 +158,18 @@ def install(args):
   # Launch a real browser and draw one frame, not only package-presence checks
   code='from playwright.sync_api import sync_playwright; p=sync_playwright().start(); b=p.chromium.launch(headless=True,executable_path='+repr(chrome)+'); page=b.new_page(); page.set_content("<canvas id=c width=64 height=64></canvas>"); assert page.evaluate("(()=>{let c=document.querySelector(\'canvas\'); c.getContext(\'2d\').fillRect(0,0,10,10);return c.toDataURL().startsWith(\'data:image/png\')})()"); b.close(); p.stop()'
   run([py,'-c',code],env=env)
+ if not args.skip_runtime:
+  import install_hyperframes as hf
+  hf_result=hf.setup(skills,data,config)
+  hf_result['smoke']=hf.smoke(skills,data,config)
+  (data/'hyperframes-install-receipt.json').write_text(json.dumps(hf_result,ensure_ascii=False,indent=2),encoding='utf-8')
  receipt={'status':'sources-only' if args.skip_runtime else 'runtime-and-sources-checked','upstreamLockSha256':digest(ROOT/'upstreams.lock.json'),'config':str(config),'skills':str(skills),'limitations':'No full film generated, no narration model installed, no aesthetic or listening review performed'}
  (data/'install-receipt.json').write_text(json.dumps(receipt,indent=2),encoding='utf-8')
- print('SOURCES ONLY - runtime not installed' if args.skip_runtime else 'INSTALL COMPLETE - seven sources and browser runtime checked')
+ print('SOURCES ONLY - runtime not installed' if args.skip_runtime else 'INSTALL COMPLETE - seven sources, HyperFrames, Chinese UI and short export checked')
  print('Skill is available to Codex on the next turn. Start with a short sample, not a full unreviewed film.')
 
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--skills-dir',type=Path);p.add_argument('--data-dir',type=Path);p.add_argument('--config',type=Path);p.add_argument('--check',action='store_true');p.add_argument('--skip-runtime',action='store_true',help='Advanced sources-only install; not a complete runtime')
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--skills-dir',type=Path);p.add_argument('--data-dir',type=Path);p.add_argument('--config',type=Path);p.add_argument('--check',action='store_true');p.add_argument('--complete-existing',action='store_true',help='Complete existing environment without replacing installed skill directories');p.add_argument('--skip-runtime',action='store_true',help='Advanced sources-only install; not a complete runtime')
  try:install(p.parse_args())
  except Exception as e:print('INSTALL STOPPED: '+str(e),file=sys.stderr);return 1
  return 0

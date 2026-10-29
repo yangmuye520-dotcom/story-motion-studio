@@ -1,5 +1,5 @@
 [CmdletBinding()]
-param([switch]$InstallSystemTools,[switch]$Check)
+param([switch]$InstallSystemTools,[switch]$Check,[switch]$CompleteExisting)
 $ErrorActionPreference = 'Stop'
 function Find-Python {
  foreach ($candidate in @('python','py')) {
@@ -30,6 +30,17 @@ if ((-not $python -or -not $git) -and $InstallSystemTools -and -not $Check) {
  $git = Get-Command git -ErrorAction SilentlyContinue
 }
 if (-not $python -or -not $git) { throw 'Git and Python 3.10+ required, or use -InstallSystemTools on Windows with winget' }
+if (-not $Check) {
+ $node = Get-Command node -ErrorAction SilentlyContinue
+ if (-not $node) {
+  if (-not $InstallSystemTools) { throw 'Node.js 22+ required; install it or use -InstallSystemTools' }
+  & winget install --id OpenJS.NodeJS.LTS --exact --accept-package-agreements --accept-source-agreements
+  if ($LASTEXITCODE -ne 0) { throw 'Node.js installation failed' }
+  $env:Path = [Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [Environment]::GetEnvironmentVariable('Path','User')
+ }
+ & node -e "if(Number(process.versions.node.split('.')[0])<22)process.exit(1)"
+ if ($LASTEXITCODE -ne 0) { throw 'Node.js 22+ required; please upgrade explicitly' }
+}
 $repo = $PSScriptRoot
 if (-not $repo -or -not (Test-Path -LiteralPath (Join-Path $repo 'install.py'))) {
  if ($Check) { throw 'Download or clone the repository before using -Check' }
@@ -44,6 +55,8 @@ if (-not $repo -or -not (Test-Path -LiteralPath (Join-Path $repo 'install.py')))
   if (-not (Test-Path -LiteralPath (Join-Path $repo 'install.py'))) { throw 'Repository archive invalid; confirm it has been published' }
  }
 }
-if ($Check) { & $python -X utf8 (Join-Path $repo 'install.py') --check }
-else { & $python -X utf8 (Join-Path $repo 'install.py') }
+$installerArgs = @('-X','utf8',(Join-Path $repo 'install.py'))
+if ($Check) { $installerArgs += '--check' }
+if ($CompleteExisting) { $installerArgs += '--complete-existing' }
+& $python @installerArgs
 if ($LASTEXITCODE -ne 0) { throw 'Installer stopped, see the message above' }

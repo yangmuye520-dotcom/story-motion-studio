@@ -1,0 +1,42 @@
+{
+  "runtime": "0.8.207",
+  "ffprobe": "3.1.0",
+  "items": [
+    {
+      "name": "hyperframes",
+      "repo": "heygen-com/hyperframes",
+      "commit": "49e0312300d6c049b19eb8435930f980621a993f",
+      "subdir": "skills/hyperframes",
+      "requiredSha256": {
+        "SKILL.md": "96f3793bd677dde345c5aca4aa6484334100a154e8a5d9e2ad07d69c9b9e2b0e"
+      }
+    },
+    {
+      "name": "hyperframes-cli",
+      "repo": "heygen-com/hyperframes",
+      "commit": "49e0312300d6c049b19eb8435930f980621a993f",
+      "subdir": "skills/hyperframes-cli",
+      "requiredSha256": {
+        "SKILL.md": "44a48ccfa4cbd4f4234f8306c96268a4be56a0f2376abedbf31d2167b3c21286"
+      }
+    },
+    {
+      "name": "hyperframes-registry",
+      "repo": "heygen-com/hyperframes",
+      "commit": "49e0312300d6c049b19eb8435930f980621a993f",
+      "subdir": "skills/hyperframes-registry",
+      "requiredSha256": {
+        "SKILL.md": "0ac5bb49dd7aed66e0d61248eca94e8c9f1a95b482c8004fb0113f724fffe6cd"
+      }
+    },
+    {
+      "name": "media-use",
+      "repo": "heygen-com/hyperframes",
+      "commit": "49e0312300d6c049b19eb8435930f980621a993f",
+      "subdir": "skills/media-use",
+      "requiredSha256": {
+        "SKILL.md": "ef3976a02ff516d8e5ed0b7fff19d4bbf9358264233bace33fdacaa3aa7f37de"
+      }
+    }
+  ]
+}
