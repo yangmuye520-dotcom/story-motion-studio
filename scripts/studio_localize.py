@@ -4,7 +4,7 @@ from pathlib import Path
 import studio
 
 def apply():
- cfg=studio.configure_runtime();cli=Path(cfg.get('hyperframes',{}).get('cli',''));package=cli.parent.parent
+ cfg=studio.configure_runtime();cli=Path(__import__('os').environ.get('HYPERFRAMES_CLI') or cfg.get('hyperframes',{}).get('cli',''));package=cli.parent.parent
  assert cli.is_file(),'Configure HyperFrames runtime first'
  assert studio.read(package/'package.json')['version']=='0.8.207','Review UI patch compatibility before upgrading'
  assets=Path(__file__).resolve().parent.parent/'assets/studio-zh'

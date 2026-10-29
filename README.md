@@ -74,6 +74,8 @@ BGM：[提供音频或视频路径，或先不加音乐]
 | 风格 | 何时用 | 表现 |
 |---|---|---|
 | **暗色精细二维 · 默认** | 流程、机制、信息系统、比较 | 固定字阶与语义色，同一对象连续变化，局部展开与来源追踪 |
+| 柔和渐显叙事 · 可选 | 温和文字叙事与概念讲解 | 稳定渐入渐出、轻位移、逐字错峰，阅读时静止 |
+| 暗色宋体叙事 · 可选 | 情感、观点、概念叙事 | 宋体主标题、细线、冷暖强调，分阶段变化与注意力交接 |
 | 浅色精细二维 · 可选 | 希望更轻、更明亮 | 保留此前认可的16秒二维参考，明确选择后使用 |
 | 黑金结构粒子 · 可选 | 结构、聚合、空间关系 | 黑金为主，少量独立结构与粒子表达状态，不强求三者同时出现 |
 
@@ -82,6 +84,17 @@ BGM：[提供音频或视频路径，或先不加音乐]
 
 暗色参考和源码在 [主要模板目录](assets/templates/engineering-2d-v1/)，[10秒无声参考](assets/templates/engineering-2d-v1/preview.mp4) 展示已认可的风格
 [四个初始动作组成48秒无声示范](assets/templates/engineering-2d-v1/modules-demo.mp4)，可在本地HyperFrames工作台预览；它们是可运行起点，不等于用户已认可新成片
+
+### 使用暗色宋体叙事
+
+发送：`使用story-motion-studio，选择暗色宋体叙事，主题是……，先给分镜和包含核心讲解动作的10秒样片`
+
+![暗色宋体叙事风格海报](assets/style-variants/editorial-serif-v1/poster.png)
+
+[10秒无声参考](assets/style-variants/editorial-serif-v1/preview-silent.mp4) · [风格接入与适用范围](references/editorial-serif.md)
+
+新增的是可选视觉层，Codex在同一HyperFrames工程内应用并重排，不自动改变默认init模板或已有工程
+仅开场视觉获认可，参考音乐已移除，新的主题和动作仍需样片确认
 
 ## 24项动作自动选用与对象追踪
 
@@ -285,3 +298,22 @@ BGM按本次提供的真实素材准备，不继承样片音乐，不保证素�
 - `scripts/`：初始化、接入、检查与导出；重运行时不装进技能目录
 
 当前v7已提供24项统一动作接口、内容关系选用规则和跨镜对象追踪，新工程启用新契约，旧工程不自动改变
+
+## 柔和渐显叙事与中文工作台
+
+提示词：`使用story-motion-studio，选择柔和渐显叙事，主题为……，通过中文工作台预览，先输出10秒样片`
+
+[运动模块与固定参数](references/soft-reveal.md)
+
+仓库包含中文UI补丁、410项词条和报错翻译规则，不包含整份node_modules运行时，也不是官方全量汉化发行版
+安装固定HyperFrames运行时后，使用本技能入口启动才会自动应用中文补丁；直接npm run dev或其他版本运行时可能仍显示英文
+
+```powershell
+# 在本技能目录执行，替换为自己的完整工程路径
+powershell -ExecutionPolicy Bypass -File .\scripts\preview-zh.ps1 -Project "D:\videos\my-project" -Port 8793
+```
+
+也可以让Codex执行：`检查实际HyperFrames运行时路径，应用本技能中文补丁，使用中文预览入口启动当前工程，并检查页面是否载入studio-zh.js`
+
+旧标签页按Ctrl+F5强制刷新；若使用另一个运行时，先配置hyperframes.cli或HYPERFRAMES_CLI再应用，不能仅给另一份安装打补丁
+界面菜单和已覆盖的动态报错中文化，未覆盖第三方诊断保留原文，不翻译用户正文和代码

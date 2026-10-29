@@ -1,0 +1,13 @@
+{
+  "id": "editorial-serif-v1",
+  "name": "暗色宋体叙事",
+  "status": "user-approved-opening-visual-reference",
+  "referenceDuration": 10,
+  "referenceAspect": "9:16",
+  "aspectPolicy": "follow current project, recompose layout",
+  "audio": "removed, never inherit reference BGM",
+  "implementation": "optional CSS visual layer, not an init template option",
+  "source": "User-provided WorkBuddy story-motion opening sample and source, 2026-10-28",
+  "scope": "Opening visual approval only, not full 90-second film or claims",
+  "fonts": "Bundled Noto Serif SC variable font; reuse existing StudioSans for body; see OFL.txt"
+}

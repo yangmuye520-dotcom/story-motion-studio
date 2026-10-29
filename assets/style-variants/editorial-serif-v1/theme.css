@@ -1,0 +1,7 @@
+/* Optional composition-scoped visual layer; does not set canvas dimensions */
+@font-face{font-family:EditorialSerif;src:url('./NotoSerifSC-VF.ttf');font-weight:100 900;font-display:block}
+.editorial-serif{--bg:#0a0b0e;--ink:#eceef2;--muted:#a3a8b0;--warm:#c9a46b;--cool:#9fb0c4;--line:rgba(236,238,242,.25);color:var(--ink);background:radial-gradient(120% 80% at 50% 38%,#12141a 0%,var(--bg) 42%,#060709 100%);font-family:StudioSans,sans-serif}
+.editorial-serif .serif{font-family:EditorialSerif,serif;font-weight:300;letter-spacing:.04em}
+.editorial-serif .warm{color:var(--warm)}.editorial-serif .cool{color:var(--cool)}
+.editorial-serif .note{color:var(--muted);line-height:1.65}
+.editorial-serif .rule{background:var(--line)}

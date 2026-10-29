@@ -1,0 +1,22 @@
+{
+  "id": "soft-reveal-v1",
+  "name": "柔和渐显叙事",
+  "base": "editorial-serif-v1",
+  "enterSeconds": [
+    0.6,
+    0.9
+  ],
+  "exitSeconds": [
+    0.4,
+    0.6
+  ],
+  "glyphStaggerSeconds": [
+    0.08,
+    0.14
+  ],
+  "offsetAt1080ShortSide": [
+    12,
+    24
+  ],
+  "policy": "same paused timeline; static reading holds; no animated letterSpacing; glyph transforms only; no inherited BGM"
+}
